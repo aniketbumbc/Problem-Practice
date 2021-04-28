@@ -7,12 +7,7 @@
 // };
 
 const reverse = (str) => {
-  let revs = '';
-
-  for (let char of str) {
-    revs = char + revs;
-  }
-  return revs;
+  return str.split('').reduce((rev, char) => char + rev, '');
 };
 
 console.log(reverse('abc'));
