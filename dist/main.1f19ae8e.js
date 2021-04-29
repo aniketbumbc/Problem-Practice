@@ -151,7 +151,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //Fizz buzz problem
 var fizzbuzz = function fizzbuzz(num) {
   for (var i = 1; i <= num; i++) {
-    if (i % 3 === 0 && i % 5) {
+    if (i % 3 === 0 && i % 5 === 0) {
       console.log('fizzbuzz');
     } else if (i % 3 === 0) {
       console.log('fizz');
