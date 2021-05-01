@@ -118,35 +118,63 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"1.5.js":[function(require,module,exports) {
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-var numArr = [1, 3, 4, 5, 2];
+var str = 'Hello A Htere ';
+var newObj = {};
 
-function chunckArr(numArr, chunkSize) {
-  var startSize = 0;
-  var finalChunk = [];
+var _iterator = _createForOfIteratorHelper(str),
+    _step;
 
-  while (startSize < numArr.length) {
-    var newChunk = [];
-    newChunk = numArr.slice(startSize, chunkSize);
-    numArr.splice(startSize, chunkSize);
-    finalChunk = [].concat(_toConsumableArray(finalChunk), [newChunk]);
+try {
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    var ele = _step.value;
+
+    if (newObj[ele] !== undefined) {
+      newObj[ele]++;
+    } else {
+      newObj[ele] = 1;
+    }
   }
-
-  console.log(finalChunk);
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
 }
 
-chunckArr(numArr, 2); // finalChunk.push(numArr.slice(startSize, startSize + chunkSize));
+console.log(newObj);
+
+function findAnnagram(str1, str2) {
+  var splStr = str1.split('');
+  var splStr2 = str2.split('');
+  splStr.sort();
+  splStr2.sort();
+
+  if (splStr2.join('') === splStr.join('')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(findAnnagram('helloe', 'eollhe')); // let numArr = [1, 3, 4, 5, 2];
+// function chunckArr(numArr, chunkSize) {
+//   let startSize = 0;
+//   let finalChunk = [];
+//   while (startSize < numArr.length) {
+//     let newChunk = [];
+//     newChunk = numArr.slice(startSize, chunkSize);
+//     numArr.splice(startSize, chunkSize);
+//     finalChunk = [...finalChunk, newChunk];
+//   }
+//   console.log(finalChunk);
+// }
+// chunckArr(numArr, 2);
+// finalChunk.push(numArr.slice(startSize, startSize + chunkSize));
 //startSize += chunkSize;
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
