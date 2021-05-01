@@ -117,53 +117,37 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"basic.js":[function(require,module,exports) {
-var strOne = '             Please locate where  occurs'; // console.log(strOne.search('where'));
-// console.log(strOne.slice(4, 8));
+})({"1.5.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-console.log(strOne);
-console.log(strOne.trim());
-var numArray = [1, 3, 5, 53, 55];
-var stringArray = ['a', 'b', 'c', 'd'];
-var value = numArray.reduce(function (acc, curr) {
-  return (acc + curr) / numArray.length;
-});
-console.log(numArray.filter(function (value) {
-  return value < 10;
-}));
-console.log(value);
-var student = {
-  name: 'John Doe',
-  age: 16,
-  scores: {
-    maths: 74,
-    english: 63,
-    science: 85
-  }
-};
-var _student$scores = student.scores,
-    maths = _student$scores.maths,
-    english = _student$scores.english,
-    science = _student$scores.science;
-console.log(maths, english, science);
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function addtion() {
-  var add = 0;
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  for (var _len = arguments.length, num = new Array(_len), _key = 0; _key < _len; _key++) {
-    num[_key] = arguments[_key];
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var numArr = [1, 3, 4, 5, 2];
+
+function chunckArr(numArr, chunkSize) {
+  var startSize = 0;
+  var finalChunk = [];
+
+  while (startSize < numArr.length) {
+    var newChunk = [];
+    newChunk = numArr.slice(startSize, chunkSize);
+    numArr.splice(startSize, chunkSize);
+    finalChunk = [].concat(_toConsumableArray(finalChunk), [newChunk]);
   }
 
-  for (var _i = 0, _num = num; _i < _num.length; _i++) {
-    var number = _num[_i];
-    add = number + add;
-  }
-
-  console.log(add);
+  console.log(finalChunk);
 }
 
-addtion(10, 454);
-addtion(343, 43);
+chunckArr(numArr, 2); // finalChunk.push(numArr.slice(startSize, startSize + chunkSize));
+//startSize += chunkSize;
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -192,7 +176,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51643" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58475" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -368,5 +352,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","basic.js"], null)
-//# sourceMappingURL=/basic.4e11a580.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","1.5.js"], null)
+//# sourceMappingURL=/1.5.ff261ad6.js.map

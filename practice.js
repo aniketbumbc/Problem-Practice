@@ -54,3 +54,29 @@ outerFun("Niket");
 }
 
 setTimeout(insideFun,4000); */
+
+//https://jsonplaceholder.typicode.com/posts
+
+/* 
+const timeOut = (t)=> {
+return new Promise ((resolve,reject) =>{
+setTimeout(() => {
+  resolve(`Completed in ${t}`)
+},t)
+
+})
+} */
+
+/* timeOut(1000).then(result => console.log(result)); */
+
+/* Promise.all([timeOut(3000),timeOut(500)]).then(result => console.log(result)); */
+
+function curry(a) {
+  return (b) => {
+    return (c) => {
+      return a * b * c;
+    };
+  };
+}
+
+console.log(curry(12)(3)(2));
