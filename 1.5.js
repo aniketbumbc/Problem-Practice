@@ -1,34 +1,63 @@
-function findAnnagram(str1, str2) {
-  const charOccr1 = findOccurance(str1);
-  const charOccr2 = findOccurance(str2);
-
-  if (Object.keys(charOccr2).length !== Object.keys(charOccr1).length) {
-    return false;
-  }
-
-  for (let char in charOccr1) {
-    if (charOccr1[char] !== charOccr2[char]) {
-      return false;
+function findVowels(str) {
+  const setObj = steCharOccur(str.toLowerCase());
+  const vowelsArry = ['a', 'i', 'e', 'o', 'u'];
+  let count = 0;
+  for (let char in setObj) {
+    if (vowelsArry.includes(char)) {
+      count += setObj[char];
     }
   }
 
-  return true;
+  console.log(count);
 }
 
-function findOccurance(str) {
+function steCharOccur(str) {
   let tempObj = {};
 
   for (let char of str) {
-    if (tempObj[char] === undefined) {
-      tempObj[char] = 1;
-    } else {
+    if (tempObj[char] !== undefined) {
       tempObj[char] += 1;
+    } else {
+      tempObj[char] = 1;
     }
   }
+
   return tempObj;
 }
 
-console.log(findAnnagram('helloe', 'eollhe'));
+findVowels('AEIOU');
+
+// function findAnnagram(str1, str2) {
+//   const charOccr1 = findOccurance(str1);
+//   const charOccr2 = findOccurance(str2);
+
+//   if (Object.keys(charOccr2).length !== Object.keys(charOccr1).length) {
+//     return false;
+//   }
+
+//   for (let char in charOccr1) {
+//     if (charOccr1[char] !== charOccr2[char]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// function findOccurance(str) {
+//   let tempObj = {};
+
+//   for (let char of str) {
+//     if (tempObj[char] === undefined) {
+//       tempObj[char] = 1;
+//     } else {
+//       tempObj[char] += 1;
+//     }
+//   }
+//   return tempObj;
+// }
+
+// console.log(findAnnagram('helloe', 'eollhe'));
 
 //
 

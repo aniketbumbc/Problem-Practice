@@ -124,24 +124,21 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function findAnnagram(str1, str2) {
-  var charOccr1 = findOccurance(str1);
-  var charOccr2 = findOccurance(str2);
+function findVowels(str) {
+  var setObj = steCharOccur(str.toLowerCase());
+  var vowelsArry = ['a', 'i', 'e', 'o', 'u'];
+  var count = 0;
 
-  if (Object.keys(charOccr2).length !== Object.keys(charOccr1).length) {
-    return false;
-  }
-
-  for (var char in charOccr1) {
-    if (charOccr1[char] !== charOccr2[char]) {
-      return false;
+  for (var char in setObj) {
+    if (vowelsArry.includes(char)) {
+      count += setObj[char];
     }
   }
 
-  return true;
+  console.log(count);
 }
 
-function findOccurance(str) {
+function steCharOccur(str) {
   var tempObj = {};
 
   var _iterator = _createForOfIteratorHelper(str),
@@ -151,10 +148,10 @@ function findOccurance(str) {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var char = _step.value;
 
-      if (tempObj[char] === undefined) {
-        tempObj[char] = 1;
-      } else {
+      if (tempObj[char] !== undefined) {
         tempObj[char] += 1;
+      } else {
+        tempObj[char] = 1;
       }
     }
   } catch (err) {
@@ -166,7 +163,32 @@ function findOccurance(str) {
   return tempObj;
 }
 
-console.log(findAnnagram('helloe', 'eollhe')); //
+findVowels('AEIOU'); // function findAnnagram(str1, str2) {
+//   const charOccr1 = findOccurance(str1);
+//   const charOccr2 = findOccurance(str2);
+//   if (Object.keys(charOccr2).length !== Object.keys(charOccr1).length) {
+//     return false;
+//   }
+//   for (let char in charOccr1) {
+//     if (charOccr1[char] !== charOccr2[char]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+// function findOccurance(str) {
+//   let tempObj = {};
+//   for (let char of str) {
+//     if (tempObj[char] === undefined) {
+//       tempObj[char] = 1;
+//     } else {
+//       tempObj[char] += 1;
+//     }
+//   }
+//   return tempObj;
+// }
+// console.log(findAnnagram('helloe', 'eollhe'));
+//
 // const str = 'Hello A Htere ';
 // let newObj = {};
 // for (let ele of str) {
