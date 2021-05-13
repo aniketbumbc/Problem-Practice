@@ -9,4 +9,21 @@ function chunckArry(array, size) {
   return finalChunk;
 }
 
-chunckArry([1, 2, 3, 4, 5], 2);
+//chunckArry([1, 2, 3, 4, 5], 2);
+
+function findUniqueValue(arr) {
+  let uniqueCount = 0;
+  for (let i = 0; i <= arr.length; i++) {
+    for (let j = i + 1; j <= arr.length; j++) {
+      if (arr[i] !== arr[j]) {
+        uniqueCount++;
+        i++;
+      } else {
+        break;
+      }
+    }
+  }
+  console.log(uniqueCount);
+}
+
+findUniqueValue([1, 1, 1, 1, 1, 1, 2]);
