@@ -130,25 +130,36 @@ function chunckArry(array, size) {
   console.log(finalChunk);
   return finalChunk;
 } //chunckArry([1, 2, 3, 4, 5], 2);
+// function findUniqueValue(arr) {
+//   let uniqueCount = 0;
+//   let i = 0;
+//   for (let j = i + 1; j <= arr.length; j++) {
+//     if (arr[i] !== arr[j]) {
+//       uniqueCount++;
+//       i++;
+//     } else {
+//       break;
+//     }
+//     console.log(uniqueCount);
+//   }
+// }
 
 
 function findUniqueValue(arr) {
-  var uniqueCount = 0;
   var i = 0;
 
-  for (var j = i + 1; j <= arr.length; j++) {
+  for (var j = 1; j <= arr.length; j++) {
     if (arr[i] !== arr[j]) {
-      uniqueCount++;
       i++;
-    } else {
-      break;
     }
 
-    console.log(uniqueCount);
+    arr[i] = arr[j];
   }
+
+  console.log(i + 1);
 }
 
-findUniqueValue([1, 1, 1, 1, 1, 1, 2]);
+findUniqueValue([1, 1, 2, 2, 3]);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
