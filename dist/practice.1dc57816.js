@@ -134,19 +134,18 @@ function chunckArry(array, size) {
 
 function findUniqueValue(arr) {
   var uniqueCount = 0;
+  var i = 0;
 
-  for (var i = 0; i <= arr.length; i++) {
-    for (var j = i + 1; j <= arr.length; j++) {
-      if (arr[i] !== arr[j]) {
-        uniqueCount++;
-        i++;
-      } else {
-        break;
-      }
+  for (var j = i + 1; j <= arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      uniqueCount++;
+      i++;
+    } else {
+      break;
     }
-  }
 
-  console.log(uniqueCount);
+    console.log(uniqueCount);
+  }
 }
 
 findUniqueValue([1, 1, 1, 1, 1, 1, 2]);
