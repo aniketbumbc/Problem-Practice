@@ -118,26 +118,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"IC Practice/PracticeCode.js":[function(require,module,exports) {
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var student1 = {
-  name: 'Abu',
-  number: 232,
-  address: {
-    location: 'MD'
-  }
+var myObj = {
+  value: 10
 };
+Object.seal(myObj);
+myObj.value = 30;
+delete myObj.value; // console.log(myObj);
 
-var stud2 = _objectSpread({}, student1);
-
-stud2.name = 'Mike';
-stud2.address.location = 'NYC';
-console.log(student1);
-console.log(stud2);
+var myObj1 = {
+  value: 344
+};
+Object.freeze(myObj1);
+myObj1.value = 111;
+console.log(myObj1);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

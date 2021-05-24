@@ -1,16 +1,17 @@
-const student1 = {
-  name: 'Abu',
-  number: 232,
-  address: {
-    location: 'MD',
-  },
+const myObj = {
+  value: 10,
 };
 
-const stud2 = { ...student1 };
+Object.seal(myObj);
+myObj.value = 30;
+delete myObj.value;
+// console.log(myObj);
 
-stud2.name = 'Mike';
-stud2.address.location = 'NYC';
+const myObj1 = {
+  value: 344,
+};
 
-console.log(student1);
+Object.freeze(myObj1);
+myObj1.value = 111;
 
-console.log(stud2);
+console.log(myObj1);
