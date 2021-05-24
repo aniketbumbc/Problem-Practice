@@ -118,6 +118,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"IC Practice/PracticeCode.js":[function(require,module,exports) {
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(generatorFun),
+    _marked2 = /*#__PURE__*/regeneratorRuntime.mark(generator);
+
 var myObj = {
   value: 10
 };
@@ -129,8 +132,76 @@ var myObj1 = {
   value: 344
 };
 Object.freeze(myObj1);
-myObj1.value = 111;
-console.log(myObj1);
+myObj1.value = 111; // console.log(myObj1);
+
+var testArc = [1, 2, 3, 4, 5];
+console.dir(testArc);
+var testTest = [3, 5, 6, 3, 2, 2, 1, 5];
+var uniqueTest = new Set(testTest);
+console.log(uniqueTest);
+var iterator = testArc[Symbol.iterator]();
+console.log(iterator.next());
+
+function generatorFun() {
+  return regeneratorRuntime.wrap(function generatorFun$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return 1;
+
+        case 2:
+          _context.next = 4;
+          return 2;
+
+        case 4:
+          _context.next = 6;
+          return 3;
+
+        case 6:
+          _context.next = 8;
+          return 5;
+
+        case 8:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked);
+}
+
+var iteratorFun = generatorFun();
+console.log(iteratorFun.next());
+
+function generator() {
+  return regeneratorRuntime.wrap(function generator$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return 1;
+
+        case 2:
+          _context2.next = 4;
+          return 2;
+
+        case 4:
+          _context2.next = 6;
+          return 3;
+
+        case 6:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, _marked2);
+}
+
+var gen = generator(); // console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -159,7 +230,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63087" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53301" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
