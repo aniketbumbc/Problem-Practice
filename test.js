@@ -1,15 +1,9 @@
-const count = () => {
-  const [count, setCount] = useState();
-
-  useEffect(() => {
+function printNumber(num) {
+  for (let i = 1; i <= num; i++) {
     setTimeout(() => {
-      setCount(count + 1);
-    }, 1000);
-  }, [count]);
+      console.log(i);
+    }, i * 1000);
+  }
+}
 
-  return (
-    <>
-      <h3>{count}</h3>
-    </>
-  );
-};
+printNumber(10);
