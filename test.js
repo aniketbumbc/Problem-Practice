@@ -1,9 +1,4 @@
-function printNumber(num) {
-  for (let i = 1; i <= num; i++) {
-    setTimeout(() => {
-      console.log(i);
-    }, i * 1000);
-  }
-}
-
-printNumber(10);
+console.log(aVar); // undefined
+console.log(aLet); // causes ReferenceError: aLet is not defined
+var aVar = 1;
+let aLet = 2;
