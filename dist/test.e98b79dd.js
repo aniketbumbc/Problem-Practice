@@ -151,6 +151,33 @@ function add(a) {
 
 var result = add(1)(2)(3)(4);
 console.log(result);
+
+var student = function student(name) {
+  this.name = name;
+};
+
+student.prototype.getName = function () {
+  return this.name;
+};
+
+var stud = new student('Aniket');
+var stud1 = new student('Bunny');
+console.log(stud.getName());
+console.log(stud1.getName());
+var promise = new Promise(function (resolve, reject) {
+  var connection = false;
+
+  if (connection) {
+    resolve('connection solve');
+  } else {
+    reject('connection reject');
+  }
+});
+promise.then(function (msg) {
+  console.log(msg);
+}).catch(function (error) {
+  console.log(error);
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -30,3 +30,34 @@ function add(a) {
 
 const result = add(1)(2)(3)(4);
 console.log(result);
+
+var student = function (name) {
+  this.name = name;
+};
+
+student.prototype.getName = function () {
+  return this.name;
+};
+
+var stud = new student('Aniket');
+var stud1 = new student('Bunny');
+
+console.log(stud.getName());
+console.log(stud1.getName());
+
+let promise = new Promise((resolve, reject) => {
+  let connection = false;
+  if (connection) {
+    resolve('connection solve');
+  } else {
+    reject('connection reject');
+  }
+});
+
+promise
+  .then((msg) => {
+    console.log(msg);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
