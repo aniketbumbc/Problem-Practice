@@ -45,6 +45,7 @@ var stud1 = new student('Bunny');
 console.log(stud.getName());
 console.log(stud1.getName());
 
+//Promise implementation
 let promise = new Promise((resolve, reject) => {
   let connection = false;
   if (connection) {
