@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Debouncing demo</h3>
+
+    <input type="text" onkeyup="searchKeyWord()" />
+    <script>
+      let counter = 0;
+      const getData = () => {
+        counter++;
+        console.log('Fetching Data .....', counter);
+      };
+
+      const search = function (fn, dealy) {
+        let timer;
+        return function () {
+          let context = this;
+          arg = arguments;
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            getData.apply(context, arg);
+          }, dealy);
+        };
+      };
+
+      const searchKeyWord = search(getData, 400);
+    </script>
+  </body>
+</html>
