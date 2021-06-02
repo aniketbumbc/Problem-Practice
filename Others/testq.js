@@ -20,6 +20,6 @@ let obj = {
   },
 };
 
-obj.getX();
+let test = obj.getX();
 
 obj.bind(inner());

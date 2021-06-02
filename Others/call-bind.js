@@ -1,14 +1,24 @@
 let name = {
   firstName: 'Bunny',
   lastName: 'Bugs',
-  printFullName: function () {
-    console.log(this.firstName, this.lastName);
-  },
-  //   printName: () => {
-  //     console.log(this.firstName);
-  //   },
 };
 
-// name.printFullName();
+let printFullName = function (city, country) {
+  console.log(this.firstName, this.lastName, city, country);
+};
 
-name.printFullName.call(name);
+printFullName.call(name, 'MD', 'NYC');
+
+let locationed = {
+  firstName: 'DC',
+  lastName: 'usa',
+};
+
+printFullName.call(locationed, 'Mumbai', 'India');
+printFullName.apply(locationed, ['DP', 'London']);
+
+// bind
+
+let printName = printFullName.bind(name, 'Thane', 'Mumbai');
+
+printName();
