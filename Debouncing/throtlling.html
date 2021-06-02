@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Throtlling Implementation</title>
+  </head>
+  <body>
+    <h4>Throtlling Implementation</h4>
+    <button onclick="clickMe()">Click Me</button>
+
+    <script>
+      let counter = 0;
+      const getData = () => {
+        counter++;
+        let currentData = new Date();
+        console.log('Getting data.....', counter, currentData);
+      };
+      throttle = (fun, dealy) => {
+        let flag = true;
+        return () => {
+          if (flag) {
+            flag = false;
+            setTimeout(() => {
+              getData();
+              flag = true;
+            }, dealy);
+          }
+        };
+      };
+
+      const clickMe = throttle(getData, 1000);
+    </script>
+  </body>
+</html>
