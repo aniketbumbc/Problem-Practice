@@ -162,7 +162,29 @@ Function.prototype.mybind = function () {
 };
 
 var polyBindPrint = print.mybind(student, 'Baltimore');
-polyBindPrint('Texas', 'fdf');
+polyBindPrint('Texas', 'fdf'); // curring
+
+var sum = function sum(a) {
+  return function (b) {
+    if (b) {
+      return sum(a + b);
+    }
+
+    return a;
+  };
+};
+
+console.log(sum(1)(2)(3)(4)());
+
+function curring(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+console.log(curring(1)(2)(3));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -191,7 +213,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63483" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50001" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
