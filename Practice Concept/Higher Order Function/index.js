@@ -18,7 +18,53 @@ const calculate = (radius, logic) => {
 
 const addition = (num) => num + num;
 
-console.log(radius.map(addition));
+//console.log(radius.map(addition));
 
-console.log('Area ---- ', calculate(radius, areaCalculate));
-console.log('Diameter ---- ', calculate(radius, diameterCircle));
+//console.log('Area ---- ', calculate(radius, areaCalculate));
+//console.log('Diameter ---- ', calculate(radius, diameterCircle));
+
+/**
+ *  Object Shallow vs Deep
+ */
+
+var userName = {
+  name: 'Bunny',
+  age: 30,
+  designation: 'Developer',
+  address: {
+    street: 'Baltimore',
+    city: 'MD',
+  },
+};
+
+console.log(userName);
+
+// userName.address.city = 'NYC';
+// userName.name = 'Mike';
+
+const newObj = Object.assign({}, userName);
+
+newObj.address = { ...userName.address };
+newObj.address.city = 'NYC';
+newObj.name = 'Mike';
+
+//console.log('New Obj..', newObj);
+
+/**
+ * Closurse
+ */
+
+var x = 30;
+
+function outerFun() {
+  let z = 10;
+
+  function innerFun() {
+    let y = 20;
+    console.log(x * y * z);
+  }
+
+  innerFun();
+}
+outerFun();
+console.log();
