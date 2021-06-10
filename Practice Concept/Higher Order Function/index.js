@@ -68,3 +68,21 @@ function outerFun() {
 }
 outerFun();
 console.log();
+
+// print 1,2,3,4,5 in seconds
+
+function counter() {
+  for (var i = 1; i <= 5; i++) {
+    function innerCounter(i) {
+      setTimeout(function () {
+        var z = i;
+        console.log(z);
+      }, i * 1000);
+    }
+    innerCounter(i);
+  }
+
+  console.log('Take JS');
+}
+
+counter();
