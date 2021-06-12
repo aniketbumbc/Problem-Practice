@@ -75,7 +75,6 @@ function counter() {
   for (var i = 1; i <= 5; i++) {
     function innerCounter(i) {
       setTimeout(function () {
-        var z = i;
         console.log(z);
       }, i * 1000);
     }
@@ -84,5 +83,4 @@ function counter() {
 
   console.log('Take JS');
 }
-
 counter();
