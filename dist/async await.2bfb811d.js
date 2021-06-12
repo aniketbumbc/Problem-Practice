@@ -916,7 +916,7 @@ var preMovie = /*#__PURE__*/function () {
             iceCream = _context.sent;
             console.log('Here itsss ' + ticket);
             console.log('I bought ' + popcorn);
-            console.log('I Cold ' + iceCream);
+            console.log('Take Cold ' + iceCream);
             return _context.abrupt("return", ticket);
 
           case 16:
@@ -933,7 +933,7 @@ var preMovie = /*#__PURE__*/function () {
 }();
 
 preMovie().then(function (msg) {
-  return console.log("person 4 shows ".concat(msg));
+  return console.log("person 3 shows ".concat(msg));
 });
 console.log('p4 : show ticket');
 console.log('p5 : show ticket');

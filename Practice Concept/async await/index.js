@@ -18,14 +18,15 @@ const preMovie = async () => {
   let ticket = await promiseTicket;
   let popcorn = await getPopcorn;
   let iceCream = await iceCreamPromise;
+
   console.log('Here itsss ' + ticket);
   console.log('I bought ' + popcorn);
-  console.log('I Cold ' + iceCream);
+  console.log('Take Cold ' + iceCream);
 
   return ticket;
 };
 
-preMovie().then((msg) => console.log(`person 4 shows ${msg}`));
+preMovie().then((msg) => console.log(`person 3 shows ${msg}`));
 
 console.log('p4 : show ticket');
 console.log('p5 : show ticket');
