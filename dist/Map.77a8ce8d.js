@@ -117,82 +117,46 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"IC Practice/grand vision Practice/practice-1.js":[function(require,module,exports) {
-/**   Closure */
-function mostOuter() {
-  var outerMost = 'Hello Outer Most';
+})({"IC Practice/grand vision Practice/Map.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-  function outer() {
-    var c = 100;
-    var outer = ' this is outer call';
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-    function inner() {
-      var innerCall = ' Inner Call';
-      console.log(outer, innerCall, ' ', outerMost, c);
-    }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-    inner();
-  }
+var map1 = new Map([[1, 3], [3, 4], [5, 3]]);
+var map2 = new Map([['firstname', 'sumit'], ['lastname', 'ghosh'], ['website', 'geeksforgeeks']]);
+console.log('Map - 1', map1);
+console.log('Map - 2', map2);
+console.log(map2.size);
+var days = new Map();
+days.set(1, 'Monday');
+days.set(2, 'Tuesday');
+days.set(3, 'Wednesday');
+console.log(days);
+console.log(days.get(3));
+console.log(days.keys());
+console.log(days.values());
+console.log(map2.entries());
+map2.forEach(function (values, keys) {
+  return console.log(keys, values);
+});
+var getit = map2[Symbol.iterator]();
 
-  outer();
+var _iterator = _createForOfIteratorHelper(getit),
+    _step;
+
+try {
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    var item = _step.value;
+    console.log(item);
+  } // console.log(getit);
+
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
 }
-
-var c = 900;
-mostOuter();
-
-function HigherCounter() {
-  var count = 100;
-
-  this.increment = function () {
-    count++;
-    console.log(count);
-  };
-
-  this.decrement = function () {
-    count--;
-    console.log(count);
-  };
-}
-
-var callCounter = new HigherCounter();
-callCounter.increment();
-callCounter.increment();
-callCounter.increment();
-callCounter.increment();
-callCounter.decrement();
-/** Prototype inheritance */
-
-var schoolClass = function schoolClass(classNumber) {
-  this.number = classNumber;
-};
-
-schoolClass.prototype.getStudent = function () {
-  return this.number;
-};
-
-var HSC = new schoolClass(2000);
-var SSC = new schoolClass(440);
-console.log(HSC.getStudent(), SSC.getStudent());
-/* Sort Array */
-
-var arryNum = [66, 44, 22, 1, 5, 34, 6, 0];
-var arryNum2 = [66, 44, 22, 1, 5, 34, 6, 0];
-console.log('descending ', arryNum.sort(function (a, b) {
-  return a - b;
-}));
-console.log('ascednig ', arryNum.sort(function (a, b) {
-  return b - a;
-}));
-sayHello();
-sayWorld();
-
-function sayHello() {
-  console.log('Hello');
-}
-
-var sayWorld = function sayWorld() {
-  console.log('World');
-};
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -397,5 +361,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/grand vision Practice/practice-1.js"], null)
-//# sourceMappingURL=/practice-1.1d008b0e.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/grand vision Practice/Map.js"], null)
+//# sourceMappingURL=/Map.77a8ce8d.js.map
