@@ -123,11 +123,12 @@ function mostOuter() {
   var outerMost = 'Hello Outer Most';
 
   function outer() {
+    var c = 100;
     var outer = ' this is outer call';
 
     function inner() {
       var innerCall = ' Inner Call';
-      console.log(outer, innerCall, ' ', outerMost);
+      console.log(outer, innerCall, ' ', outerMost, c);
     }
 
     inner();
@@ -136,7 +137,29 @@ function mostOuter() {
   outer();
 }
 
+var c = 900;
 mostOuter();
+
+function HigherCounter() {
+  var count = 100;
+
+  this.increment = function () {
+    count++;
+    console.log(count);
+  };
+
+  this.decrement = function () {
+    count--;
+    console.log(count);
+  };
+}
+
+var callCounter = new HigherCounter();
+callCounter.increment();
+callCounter.increment();
+callCounter.increment();
+callCounter.increment();
+callCounter.decrement();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
