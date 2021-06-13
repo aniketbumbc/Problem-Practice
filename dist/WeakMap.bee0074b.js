@@ -117,65 +117,18 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"IC Practice/grand vision Practice/Map.js":[function(require,module,exports) {
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-var map1 = new Map([[1, 3], [3, 4], [5, 3]]);
-var map2 = new Map([['firstname', 'sumit'], ['lastname', 'ghosh'], ['website', 'geeksforgeeks']]);
-console.log('Map - 1', map1);
-console.log('Map - 2', map2);
-console.log(map2.size);
-var days = new Map();
-days.set(1, 'Monday');
-days.set(2, 'Tuesday');
-days.set(3, 'Wednesday');
-console.log(days);
-console.log(days.get(3));
-console.log(days.keys());
-console.log(days.values());
-console.log(map2.entries());
-map2.forEach(function (values, keys) {
-  return console.log(keys, values);
-});
-var getit = map2[Symbol.iterator]();
-
-var _iterator = _createForOfIteratorHelper(getit),
-    _step;
-
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    var item = _step.value;
-    console.log(item);
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
-}
-
-var obja = {};
-var c = '';
-var d = 0;
-var objb = {
-  num: 1
+})({"IC Practice/grand vision Practice/WeakMap.js":[function(require,module,exports) {
+var weakmap1 = new WeakMap();
+var e1 = {
+  ename: 'Kiran'
 };
-var objMain = {}; // const c = 'Key-C';
-// objMain[obja] = 'bunny';
-// objMain[objb] = 'Bugs';
-
-var map = new Map();
-map.set(obja, 'a');
-map.set(objb, 'b');
-map.set(c, 'bunny');
-map.set(d, 3434);
-console.log(map.entries());
-map.forEach(function (keys, values) {
-  return console.log(keys, values);
-});
+var key1 = {};
+var key2 = {};
+var key3 = {};
+weakmap1.set(key1, 233);
+weakmap1.set(key2, 233);
+weakmap1.set(key3, 34);
+console.log(weakmap1.get(key1), weakmap1.get(key2), weakmap1.get(key3));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -380,5 +333,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/grand vision Practice/Map.js"], null)
-//# sourceMappingURL=/Map.77a8ce8d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/grand vision Practice/WeakMap.js"], null)
+//# sourceMappingURL=/WeakMap.bee0074b.js.map

@@ -37,4 +37,23 @@ for (const item of getit) {
   console.log(item);
 }
 
-// console.log(getit);
+const obja = {};
+let c = '';
+let d = 0;
+
+const objb = { num: 1 };
+const objMain = {};
+// const c = 'Key-C';
+
+// objMain[obja] = 'bunny';
+// objMain[objb] = 'Bugs';
+
+const map = new Map();
+
+map.set(obja, 'a');
+map.set(objb, 'b');
+map.set(c, 'bunny');
+map.set(d, 3434);
+
+console.log(map.entries());
+map.forEach((keys, values) => console.log(keys, values));
