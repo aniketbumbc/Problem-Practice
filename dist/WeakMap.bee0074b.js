@@ -126,9 +126,10 @@ var key1 = {};
 var key2 = {};
 var key3 = {};
 weakmap1.set(key1, 233);
+weakmap1.set(e1, 334);
 weakmap1.set(key2, 233);
-weakmap1.set(key3, 34);
-console.log(weakmap1.get(key1), weakmap1.get(key2), weakmap1.get(key3));
+weakmap1.set(key3, 'fef');
+console.log(weakmap1.get(key1), weakmap1.get(key2), weakmap1.get(key3), weakmap1.get(e1));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -157,7 +158,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61365" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59357" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -67,7 +67,7 @@ console.log(
 );
 
 sayHello();
-sayWorld();
+// sayWorld();
 
 function sayHello() {
   console.log('Hello');
@@ -76,3 +76,60 @@ function sayHello() {
 const sayWorld = () => {
   console.log('World');
 };
+
+function y() {
+  console.log(this.length);
+}
+
+var objx = {
+  length: 5,
+  method: function (y) {
+    arguments[0](); // gives how many arguments you pass to function (gets number how many argumetnts)
+  },
+};
+
+var objY = {
+  length: 10,
+};
+
+// var newTest = y.bind(objY);
+// newTest();
+objx.method(y);
+
+let obj = {
+  x: 1,
+  getX() {
+    const newthis = this;
+    function inner() {
+      console.log(newthis.x);
+    }
+    inner();
+  },
+};
+
+obj.getX();
+
+console.log('mike'.__proto__.__proto__.__proto__);
+
+function getArguments(...args) {
+  return args.length;
+}
+
+console.log(getArguments(3, 4, 3, 5, 3, 5, 2));
+
+var numArr = [3, 4, 3, 5, 3, 5, 2];
+var getResult = [...new Set(numArr)];
+
+console.log(getResult);
+
+let fun = function () {
+  (function () {
+    let l = 'let';
+    var v = 'var';
+  })();
+
+  console.log(v);
+  console.log(l);
+};
+
+fun();

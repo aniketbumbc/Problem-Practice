@@ -117,145 +117,86 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"IC Practice/grand vision Practice/practice-1.js":[function(require,module,exports) {
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-/**   Closure */
-function mostOuter() {
-  var outerMost = 'Hello Outer Most';
-
-  function outer() {
-    var c = 100;
-    var outer = ' this is outer call';
-
-    function inner() {
-      var innerCall = ' Inner Call';
-      console.log(outer, innerCall, ' ', outerMost, c);
-    }
-
-    inner();
-  }
-
-  outer();
-}
-
-var c = 900;
-mostOuter();
-
-function HigherCounter() {
-  var count = 100;
-
-  this.increment = function () {
-    count++;
-    console.log(count);
-  };
-
-  this.decrement = function () {
-    count--;
-    console.log(count);
-  };
-}
-
-var callCounter = new HigherCounter();
-callCounter.increment();
-callCounter.increment();
-callCounter.increment();
-callCounter.increment();
-callCounter.decrement();
-/** Prototype inheritance */
-
-var schoolClass = function schoolClass(classNumber) {
-  this.number = classNumber;
-};
-
-schoolClass.prototype.getStudent = function () {
-  return this.number;
-};
-
-var HSC = new schoolClass(2000);
-var SSC = new schoolClass(440);
-console.log(HSC.getStudent(), SSC.getStudent());
-/* Sort Array */
-
-var arryNum = [66, 44, 22, 1, 5, 34, 6, 0];
-var arryNum2 = [66, 44, 22, 1, 5, 34, 6, 0];
-console.log('descending ', arryNum.sort(function (a, b) {
-  return a - b;
-}));
-console.log('ascednig ', arryNum.sort(function (a, b) {
-  return b - a;
-}));
-sayHello(); // sayWorld();
-
-function sayHello() {
-  console.log('Hello');
-}
-
-var sayWorld = function sayWorld() {
-  console.log('World');
-};
-
-function y() {
-  console.log(this.length);
-}
-
-var objx = {
-  length: 5,
-  method: function method(y) {
-    arguments[0](); // gives how many arguments you pass to function (gets number how many argumetnts)
-  }
-};
-var objY = {
-  length: 10
-}; // var newTest = y.bind(objY);
-// newTest();
-
-objx.method(y);
+})({"IC Practice/grand vision Practice/practice-2.js":[function(require,module,exports) {
+/**
+ *  Object into array
+ */
 var obj = {
+  a: 1,
+  b: 3,
+  c: 33
+};
+
+function convertToArr(obj) {
+  var objArr = [];
+
+  for (var key in obj) {
+    objArr.push(obj[key]);
+  }
+
+  return objArr;
+} // console.log(Object.entries(obj));
+// console.log(convertToArr(obj));
+
+
+var newObj = {
+  a: 1,
+  b: 3,
+  getA: function getA() {
+    console.log(this.a);
+    return this;
+  },
+  getB: function getB() {
+    console.log(this.b);
+  }
+};
+newObj.getA().getB();
+
+Array.prototype.print = function () {
+  var newArry = new String(this);
+  console.log(parseInt(newArry.split('')));
+};
+
+var abc = [2, 3, 4];
+abc.print();
+var cloneObje = {
+  a: {
+    b: {
+      c: 1
+    }
+  }
+};
+console.log(cloneObje);
+var newClone = JSON.parse(JSON.stringify(cloneObje)); // deep clone object
+
+newClone.a.b.c = 10;
+console.log('newClone ', newClone);
+var oldobj = {
   x: 1,
   getX: function getX() {
+    // const newthis = this;
     function inner() {
-      console.log(obj.x);
+      console.log(this.x);
     }
 
-    inner();
+    inner.bind(this)();
   }
-}; //obj.getX.bind(obj)();
+};
+oldobj.getX();
 
-console.log('mike'.__proto__.__proto__.__proto__);
-
-function getArguments() {
-  return arguments.length;
+function oldAdd(a, b) {
+  return a + b;
 }
 
-console.log(getArguments(3, 4, 3, 5, 3, 5, 2));
-var numArr = [3, 4, 3, 5, 3, 5, 2];
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
 
-var getResult = _toConsumableArray(new Set(numArr));
-
-console.log(getResult);
-
-var fun = function fun() {
-  (function () {
-    var l = 'let';
-    var v = 'var';
-  })();
-
-  console.log(v);
-  console.log(l);
-};
-
-fun();
+console.log(oldAdd(34, 44));
+console.log(add(333)(44)); // const numMissArry = [1,3,4,5];
+// const len =
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -460,5 +401,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/grand vision Practice/practice-1.js"], null)
-//# sourceMappingURL=/practice-1.1d008b0e.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/grand vision Practice/practice-2.js"], null)
+//# sourceMappingURL=/practice-2.b488f12c.js.map
