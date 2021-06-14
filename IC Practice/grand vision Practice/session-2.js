@@ -102,4 +102,65 @@ function findMissingNo(arr) {
   return missNumber;
 }
 
-console.log(findMissingNo([1, 2, 4, 5, 6]));
+// console.log(findMissingNo([1, 2, 4, 5, 6]));
+
+/* Find Words in string */
+
+function maxChar(str) {
+  let charObj = {};
+  let maxCount = 0;
+  let outputChar = '';
+
+  for (let char of str) {
+    if (charObj[char] !== undefined) {
+      charObj[char] += 1;
+    } else {
+      charObj[char] = 1;
+    }
+  }
+
+  for (let char in charObj) {
+    if (charObj[char] > maxCount) {
+      maxCount = charObj[char];
+      outputChar = char;
+    }
+  }
+
+  return [maxCount, outputChar];
+}
+
+console.log(maxChar('apple'));
+
+/** Find Two Words anagram or not */
+
+function checkAnangram(str1, str2) {
+  let getObj1 = helperWordFrequency(str1.split(''));
+  let getObj2 = helperWordFrequency(str2.split(''));
+
+  if (Object.keys(getObj1).length !== Object.keys(getObj2).length) {
+    return false;
+  }
+
+  for (let char in getObj1) {
+    if (getObj1[char] !== getObj2[char]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function helperWordFrequency(str) {
+  let tempObj = {};
+
+  for (let char of str) {
+    if (tempObj[char] === undefined) {
+      tempObj[char] = 1;
+    } else {
+      tempObj[char] += 1;
+    }
+  }
+  return tempObj;
+}
+
+console.log(checkAnangram('abb', 'bbadsds'));

@@ -257,9 +257,91 @@ function findMissingNo(arr) {
   }
 
   return missNumber;
+} // console.log(findMissingNo([1, 2, 4, 5, 6]));
+
+/* Find Words in string */
+
+
+function maxChar(str) {
+  var charObj = {};
+  var maxCount = 0;
+  var outputChar = '';
+
+  var _iterator3 = _createForOfIteratorHelper(str),
+      _step3;
+
+  try {
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var _char = _step3.value;
+
+      if (charObj[_char] !== undefined) {
+        charObj[_char] += 1;
+      } else {
+        charObj[_char] = 1;
+      }
+    }
+  } catch (err) {
+    _iterator3.e(err);
+  } finally {
+    _iterator3.f();
+  }
+
+  for (var char in charObj) {
+    if (charObj[char] > maxCount) {
+      maxCount = charObj[char];
+      outputChar = char;
+    }
+  }
+
+  return [maxCount, outputChar];
 }
 
-console.log(findMissingNo([1, 2, 4, 5, 6]));
+console.log(maxChar('apple'));
+/** Find Two Words anagram or not */
+
+function checkAnangram(str1, str2) {
+  var getObj1 = helperWordFrequency(str1.split(''));
+  var getObj2 = helperWordFrequency(str2.split(''));
+
+  if (Object.keys(getObj1).length !== Object.keys(getObj2).length) {
+    return false;
+  }
+
+  for (var char in getObj1) {
+    if (getObj1[char] !== getObj2[char]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function helperWordFrequency(str) {
+  var tempObj = {};
+
+  var _iterator4 = _createForOfIteratorHelper(str),
+      _step4;
+
+  try {
+    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+      var char = _step4.value;
+
+      if (tempObj[char] === undefined) {
+        tempObj[char] = 1;
+      } else {
+        tempObj[char] += 1;
+      }
+    }
+  } catch (err) {
+    _iterator4.e(err);
+  } finally {
+    _iterator4.f();
+  }
+
+  return tempObj;
+}
+
+console.log(checkAnangram('abb', 'bbadsds'));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
