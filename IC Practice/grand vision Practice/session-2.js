@@ -184,4 +184,49 @@ function fiboSeries(num) {
   return nextTerm;
 }
 
-console.log(fiboSeries(10));
+//console.log(fiboSeries(10));
+
+/* Fizz Buzz */
+
+function fizbuzz(num) {
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('Fizzz Buzzzzz');
+    } else if (i % 5 === 0) {
+      console.log('fizzzzzz');
+    } else if (i % 3 === 0) {
+      console.log('buzzzzz');
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+//fizbuzz(30);
+
+/* Map and WeakMap */
+
+const mapStundent = new Map([
+  [1, 'bunny'],
+  [2, 'mike'],
+  [3, 'Rinhno'],
+]);
+
+console.log(mapStundent);
+
+mapStundent.set(42, 'George');
+console.log(mapStundent.get(3));
+
+mapStundent.forEach((values, key) => {
+  console.log([key, values]);
+});
+
+console.log([...mapStundent.keys()]);
+
+//console.log(mapStundent);
+
+var getit = mapStundent[Symbol.iterator]();
+
+for (const item of getit) {
+  console.log(item);
+}

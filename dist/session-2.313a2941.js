@@ -359,9 +359,52 @@ function fiboSeries(num) {
   }
 
   return nextTerm;
-}
+} //console.log(fiboSeries(10));
 
-console.log(fiboSeries(10));
+/* Fizz Buzz */
+
+
+function fizbuzz(num) {
+  for (var i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('Fizzz Buzzzzz');
+    } else if (i % 5 === 0) {
+      console.log('fizzzzzz');
+    } else if (i % 3 === 0) {
+      console.log('buzzzzz');
+    } else {
+      console.log(i);
+    }
+  }
+} //fizbuzz(30);
+
+/* Map and WeakMap */
+
+
+var mapStundent = new Map([[1, 'bunny'], [2, 'mike'], [3, 'Rinhno']]);
+console.log(mapStundent);
+mapStundent.set(42, 'George');
+console.log(mapStundent.get(3));
+mapStundent.forEach(function (values, key) {
+  console.log([key, values]);
+});
+console.log(_toConsumableArray(mapStundent.keys())); //console.log(mapStundent);
+
+var getit = mapStundent[Symbol.iterator]();
+
+var _iterator5 = _createForOfIteratorHelper(getit),
+    _step5;
+
+try {
+  for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+    var item = _step5.value;
+    console.log(item);
+  }
+} catch (err) {
+  _iterator5.e(err);
+} finally {
+  _iterator5.f();
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
