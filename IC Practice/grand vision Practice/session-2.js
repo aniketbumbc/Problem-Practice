@@ -164,3 +164,24 @@ function helperWordFrequency(str) {
 }
 
 console.log(checkAnangram('abb', 'bbadsds'));
+
+/** Fibo series */
+
+function fiboSeries(num) {
+  let n1 = 0;
+  let n2 = 1;
+  let nextTerm = 0;
+
+  for (let i = 0; i <= num; i++) {
+    nextTerm = n1 + n2;
+    console.log('next Term ', nextTerm);
+    n1 = n2;
+    console.log('n1', n1);
+    n2 = nextTerm;
+    console.log('n2 ', n2);
+  }
+
+  return nextTerm;
+}
+
+console.log(fiboSeries(10));

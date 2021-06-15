@@ -342,6 +342,26 @@ function helperWordFrequency(str) {
 }
 
 console.log(checkAnangram('abb', 'bbadsds'));
+/** Fibo series */
+
+function fiboSeries(num) {
+  var n1 = 0;
+  var n2 = 1;
+  var nextTerm = 0;
+
+  for (var i = 0; i <= num; i++) {
+    nextTerm = n1 + n2;
+    console.log('next Term ', nextTerm);
+    n1 = n2;
+    console.log('n1', n1);
+    n2 = nextTerm;
+    console.log('n2 ', n2);
+  }
+
+  return nextTerm;
+}
+
+console.log(fiboSeries(10));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
