@@ -1,4 +1,4 @@
-// stack
+//  Last in first out
 
 class Stack {
   stack = [];
