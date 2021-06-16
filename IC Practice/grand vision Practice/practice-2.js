@@ -33,7 +33,7 @@ const newObj = {
   },
 };
 
-newObj.getA().getB();
+newObj.getA().getB(); // if want to call this manner
 
 Array.prototype.print = function () {
   let newArry = new String(this);
@@ -75,7 +75,10 @@ function oldAdd(a, b) {
   return a + b;
 }
 
-function add(a) {
+function add(a, b) {
+  if (b !== undefined) {
+    return a + b;
+  }
   return function (b) {
     return a + b;
   };

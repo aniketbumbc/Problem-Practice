@@ -92,14 +92,12 @@ function checkPrime(num) {
 function findMissingNo(arr) {
   let n = arr.length;
   let total = Math.floor(((n + 1) * (n + 2)) / 2);
-  let missNumber = 0;
 
   for (let i = 0; i < n; i++) {
-    missNumber = total - arr[i];
-    total = missNumber;
+    total = total - arr[i];
   }
 
-  return missNumber;
+  return total;
 }
 
 // console.log(findMissingNo([1, 2, 4, 5, 6]));
