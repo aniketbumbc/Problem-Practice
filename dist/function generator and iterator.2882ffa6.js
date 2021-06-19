@@ -879,32 +879,47 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-var _marked = /*#__PURE__*/regeneratorRuntime.mark(generatorDemo);
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(createSquaredNumber);
 
-console.log('Function Generator');
+console.log('Function Generator'); // function* generatorDemo() {
+//   console.log('Generator Call');
+//   yield 'Maggie';
+//   yield 8;
+//   yield 10;
+//   yield 23;
+// }
+// const genrator1 = new generatorDemo(); // return object
+// console.log(genrator1.next());
+// console.log(genrator1.next());
+// console.log(genrator1.next());
+// console.log(genrator1.next());
+// for (let obj of generatorDemo()) {
+//   console.log(obj);
+// }
 
-function generatorDemo() {
-  return regeneratorRuntime.wrap(function generatorDemo$(_context) {
+function createSquaredNumber(max) {
+  var n;
+  return regeneratorRuntime.wrap(function createSquaredNumber$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          console.log('Generator Call');
-          _context.next = 3;
-          return 'Maggie';
+          n = 0;
 
-        case 3:
+        case 1:
+          if (!(n < max)) {
+            _context.next = 7;
+            break;
+          }
+
+          n++;
           _context.next = 5;
-          return 8;
+          return n * n;
 
         case 5:
-          _context.next = 7;
-          return 10;
+          _context.next = 1;
+          break;
 
         case 7:
-          _context.next = 9;
-          return 23;
-
-        case 9:
         case "end":
           return _context.stop();
       }
@@ -912,14 +927,9 @@ function generatorDemo() {
   }, _marked);
 }
 
-var genrator1 = new generatorDemo(); // return object
+var square = createSquaredNumber(10);
 
-console.log(genrator1.next());
-console.log(genrator1.next());
-console.log(genrator1.next());
-console.log(genrator1.next());
-
-var _iterator = _createForOfIteratorHelper(generatorDemo()),
+var _iterator = _createForOfIteratorHelper(square),
     _step;
 
 try {
