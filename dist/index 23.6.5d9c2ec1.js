@@ -204,9 +204,46 @@ function isCheckFrequency(arr1, arr2) {
   }
 
   return true;
+} //console.log(isCheckFrequency([1, 3, 4, 3], [16, 9, 1, 9]));
+
+/**
+ *  Find Maximum and Minimum number into array
+ */
+
+
+function checkMinMax(arr) {
+  var arrLength = arr.length;
+  var min = 0;
+  var max = 0;
+
+  if (arrLength < 0) {
+    return null;
+  }
+
+  if (arrLength === 1) {
+    min = arr[0];
+    max = arr[0];
+  }
+
+  if (arr[0] > arr[1]) {
+    max = arr[1];
+    min = arr[0];
+  }
+
+  for (var i = 2; i < arrLength; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+
+  console.log('min = ', min, 'max = ', max);
 }
 
-console.log(isCheckFrequency([1, 3, 4, 3], [16, 9, 1, 9]));
+checkMinMax([200, 191, 112, -11, 330, 60]);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
