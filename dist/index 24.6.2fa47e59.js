@@ -157,12 +157,42 @@ function maxSubArry(arr, num) {
   for (var j = num; j < arr.length; j++) {
     tempNum = tempNum - arr[j - num] + arr[j];
     maxNum = Math.max(maxNum, tempNum);
-  }
+  } // console.log(maxNum);
 
-  console.log(maxNum);
 }
 
 maxSubArry([2, 6, 9, 2, 1, 8, 5, 6, 3], 3);
+/**
+ *  Find K smallest element into array
+ *
+ */
+
+function findSmallEle(arr, num) {
+  var smallEle = 0;
+  var i = 0;
+
+  for (var j = 1; j < arr.length; j++) {
+    if (arr[i] < arr[j]) {
+      smallEle = arr[i];
+    } else {
+      smallEle = arr[j];
+      i++;
+    }
+  }
+
+  var indexSmallEle = arr.indexOf(smallEle);
+  arr.splice(indexSmallEle, 1);
+
+  if (arr.length - num === num) {
+    return smallEle;
+  }
+
+  findSmallEle(arr, num - 1);
+  return smallEle;
+}
+
+var value = findSmallEle([1, 0, 4, 4, 5], 2);
+console.log(value);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -36,7 +36,41 @@ function maxSubArry(arr, num) {
     maxNum = Math.max(maxNum, tempNum);
   }
 
-  console.log(maxNum);
+  // console.log(maxNum);
 }
 
 maxSubArry([2, 6, 9, 2, 1, 8, 5, 6, 3], 3);
+
+/**
+ *  Find K smallest element into array
+ *
+ */
+
+function findSmallEle(arr, num) {
+  let smallEle = 0;
+  let i = 0;
+
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[i] < arr[j]) {
+      smallEle = arr[i];
+    } else {
+      smallEle = arr[j];
+      i++;
+    }
+  }
+
+  let indexSmallEle = arr.indexOf(smallEle);
+  arr.splice(indexSmallEle, 1);
+
+  if (arr.length - num === num) {
+    return smallEle;
+  }
+
+  findSmallEle(arr, num - 1);
+
+  return smallEle;
+}
+
+let value = findSmallEle([1, 0, 4, 4, 5], 2);
+
+console.log(value);
