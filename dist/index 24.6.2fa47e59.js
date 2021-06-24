@@ -131,12 +131,38 @@ function countUniqueValue(arr) {
     }
 
     i++;
-  }
+  } //   console.log(uniqueArr.length);
 
-  console.log(uniqueArr.length);
 }
 
 countUniqueValue([1, 2, 3, 3, 4, 4, 5]);
+/**
+ *  Sliding window
+ */
+
+function maxSubArry(arr, num) {
+  var maxNum = 0;
+  var tempNum = 0;
+
+  if (arr.length === 0) {
+    return null;
+  }
+
+  for (var i = 0; i < num; i++) {
+    maxNum += arr[i];
+  }
+
+  tempNum = maxNum;
+
+  for (var j = num; j < arr.length; j++) {
+    tempNum = tempNum - arr[j - num] + arr[j];
+    maxNum = Math.max(maxNum, tempNum);
+  }
+
+  console.log(maxNum);
+}
+
+maxSubArry([2, 6, 9, 2, 1, 8, 5, 6, 3], 3);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
