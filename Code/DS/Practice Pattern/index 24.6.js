@@ -47,30 +47,10 @@ maxSubArry([2, 6, 9, 2, 1, 8, 5, 6, 3], 3);
  */
 
 function findSmallEle(arr, num) {
-  let smallEle = 0;
-  let i = 0;
-
-  for (let j = 1; j < arr.length; j++) {
-    if (arr[i] < arr[j]) {
-      smallEle = arr[i];
-    } else {
-      smallEle = arr[j];
-      i++;
-    }
-  }
-
-  let indexSmallEle = arr.indexOf(smallEle);
-  arr.splice(indexSmallEle, 1);
-
-  if (arr.length - num === num) {
-    return smallEle;
-  }
-
-  findSmallEle(arr, num - 1);
-
-  return smallEle;
+  arr.sort((a, b) => a - b);
+  return arr[num - 1];
 }
 
-let value = findSmallEle([1, 0, 4, 4, 5], 2);
+let value = findSmallEle([1, 0, 4, 4, 5], 5);
 
 console.log(value);
