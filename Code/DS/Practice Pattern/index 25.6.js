@@ -24,3 +24,22 @@ function divConqure(arr, val) {
 const value = divConqure([1, 2, 4, 5, 10, 303], 1);
 
 console.log(value);
+
+/** Multiple Pointers */
+
+function sumZero(arr) {
+  let i = 0; //-3
+
+  while (i < arr.length) {
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] !== 0 && arr[i] + arr[j] === 0) {
+        return [arr[i], arr[j]];
+      }
+    }
+    i++;
+  }
+}
+
+const sumZeroValue = sumZero([-3, -2, -1, 0, 1, 14]);
+
+console.log(sumZeroValue);
