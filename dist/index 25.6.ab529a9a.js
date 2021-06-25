@@ -161,6 +161,28 @@ function sumZero(arr) {
 
 var sumZeroValue = sumZero([-3, -2, -1, 0, 1, 14]);
 console.log(sumZeroValue);
+/** Average Pair */
+
+function avgPair(arr, pair) {
+  if (!arr.length) {
+    return false;
+  }
+
+  var isPair = false;
+  var i = 0;
+
+  while (i < arr.length) {
+    for (var j = 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] / 2 === pair) {
+        isPair = true;
+      }
+    }
+
+    return isPair;
+  }
+}
+
+console.log(avgPair([1, 0, 3, 4, 5, 6], 4.1));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
