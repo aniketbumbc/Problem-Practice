@@ -183,6 +183,28 @@ function avgPair(arr, pair) {
 }
 
 console.log(avgPair([1, 0, 3, 4, 5, 6], 4.1));
+/** Sort Arry without sort function 0,1,2 */
+
+function unSortArry(arr) {
+  var i = 0;
+  var j = 1;
+
+  while (i <= arr.length) {
+    if (arr[i] > arr[j]) {
+      var temp = 0;
+      arr[j] = temp;
+      arr[j] = arr[i];
+      arr[i] = temp;
+    }
+
+    j++;
+    i++;
+  }
+
+  return arr;
+}
+
+unSortArry([1, 0, 2, 0]);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
