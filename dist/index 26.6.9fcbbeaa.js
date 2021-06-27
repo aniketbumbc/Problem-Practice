@@ -172,7 +172,7 @@ function uniqueStr(str) {
     uniqueString = current_string;
   }
 
-  console.log(uniqueString.length, uniqueString);
+  console.log(uniqueString, uniqueString.length);
 }
 
 uniqueStr('hello there');
