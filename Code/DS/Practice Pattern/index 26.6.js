@@ -51,4 +51,4 @@ function uniqueStr(str) {
 }
 
 uniqueStr('hello there');
-// longestSequ('hello there');
+longestSequ('hello there');
