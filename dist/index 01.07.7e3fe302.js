@@ -143,7 +143,28 @@ function search(arr, searchValue) {
 }
 
 var getResult = search([1, 2, 3, 4, 5, 6], 4);
-console.log(getResult);
+console.log(getResult); // All negative on one side
+
+function allNegative(arr) {
+  var i = 0;
+
+  for (var j = 0; j < arr.length; j++) {
+    if (arr[j] < 0) {
+      if (j != i) {
+        var temp = void 0;
+        temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+      }
+
+      i++;
+    }
+  }
+
+  console.log(arr);
+}
+
+allNegative([-3, 4, -1, 32, -3, 5, -2, 22, -1]);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
