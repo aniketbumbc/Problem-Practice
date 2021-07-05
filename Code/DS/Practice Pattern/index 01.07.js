@@ -26,7 +26,7 @@ function search(arr, searchValue) {
 let getResult = search([1, 2, 3, 4, 5, 6], 4);
 console.log(getResult);
 
-// All negative on one side
+// All negative on one side in array
 
 function allNegative(arr) {
   let i = 0;
