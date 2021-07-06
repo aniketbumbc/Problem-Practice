@@ -118,6 +118,18 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"Code/DS/Practice Pattern/index 06.07.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 // recursive function for flatten array
 function flatten(arr) {
   var newArr = [];
@@ -147,9 +159,25 @@ function flattenArr(arr) {
   }
 
   return flattenArry;
+} //console.log(flattenArr([1, 2, 3, [4, 5], [[[23, 44]]]]));
+//
+
+/**
+ * {9, 8, 7, 6, 4, 2, 1, 3}
+Output:
+3 9 8 7 6 4 2 1
+ */
+
+
+function cycliRotate(arr) {
+  var newArr = [];
+  newArr.unshift(arr[arr.length - 1]);
+  arr.splice(arr.length - 1);
+  newArr = [].concat(_toConsumableArray(newArr), _toConsumableArray(arr));
+  return newArr;
 }
 
-console.log(flattenArr([1, 2, 3, [4, 5], [[[23, 44]]]])); //console.log(flattenArr([1, 2, 3, [4, 5], [23, 44]]));
+console.log(cycliRotate([9, 8, 7, 6, 4, 2, 1, 3]));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

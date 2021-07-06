@@ -32,6 +32,23 @@ function flattenArr(arr) {
   return flattenArry;
 }
 
-console.log(flattenArr([1, 2, 3, [4, 5], [[[23, 44]]]]));
+//console.log(flattenArr([1, 2, 3, [4, 5], [[[23, 44]]]]));
 
-//console.log(flattenArr([1, 2, 3, [4, 5], [23, 44]]));
+//
+
+/**
+ * {9, 8, 7, 6, 4, 2, 1, 3}
+Output:
+3 9 8 7 6 4 2 1
+ */
+
+function cycliRotate(arr) {
+  let newArr = [];
+
+  newArr.unshift(arr[arr.length - 1]);
+  arr.splice(arr.length - 1);
+  newArr = [...newArr, ...arr];
+  return newArr;
+}
+
+console.log(cycliRotate([9, 8, 7, 6, 4, 2, 1, 3]));
