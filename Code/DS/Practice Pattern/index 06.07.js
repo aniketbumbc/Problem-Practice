@@ -28,13 +28,10 @@ function flattenArr(arr) {
       flattenArry.push(arr[i]);
     }
   }
-
   return flattenArry;
 }
 
 //console.log(flattenArr([1, 2, 3, [4, 5], [[[23, 44]]]]));
-
-//
 
 /**
  * {9, 8, 7, 6, 4, 2, 1, 3}

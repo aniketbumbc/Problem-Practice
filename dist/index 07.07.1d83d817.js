@@ -117,66 +117,39 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"Code/DS/Practice Pattern/index 06.07.js":[function(require,module,exports) {
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+})({"Code/DS/searching pattern/index 07.07.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-// recursive function for flatten array
-function flatten(arr) {
-  var newArr = [];
-
-  for (var i = 0; i < arr.length; i++) {
-    if (Array.isArray(arr[i])) {
-      newArr = newArr.concat(flatten(arr[i]));
-    } else {
-      newArr.push(arr[i]);
-    }
-  }
-
-  return newArr;
-} //console.log(flatten([1, 2, 3, [4, 5]]));
-//Flatten array
-
-
-function flattenArr(arr) {
-  var flattenArry = [];
-
-  for (var i = 0; i < arr.length; i++) {
-    if (Array.isArray(arr[i])) {
-      flattenArry = flattenArry.concat(flattenArr(arr[i]));
-    } else {
-      flattenArry.push(arr[i]);
-    }
-  }
-
-  return flattenArry;
-} //console.log(flattenArr([1, 2, 3, [4, 5], [[[23, 44]]]]));
-
 /**
- * {9, 8, 7, 6, 4, 2, 1, 3}
-Output:
-3 9 8 7 6 4 2 1
+ *  Searchin Pattern JS
+ * Linear Search
  */
+function linearSearch(arr, searchValue) {
+  var _iterator = _createForOfIteratorHelper(arr),
+      _step;
 
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var value = _step.value;
 
-function cycliRotate(arr) {
-  var newArr = [];
-  newArr.unshift(arr[arr.length - 1]);
-  arr.splice(arr.length - 1);
-  newArr = [].concat(_toConsumableArray(newArr), _toConsumableArray(arr));
-  return newArr;
+      if (value === searchValue) {
+        return arr.indexOf(searchValue);
+      }
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  return -1;
 }
 
-console.log(cycliRotate([9, 8, 7, 6, 4, 2, 1, 3]));
+console.log(linearSearch([1, 3, 4, 5, 29, 23, 43], 3));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -205,7 +178,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51914" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50143" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -381,5 +354,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","Code/DS/Practice Pattern/index 06.07.js"], null)
-//# sourceMappingURL=/index%2006.07.de73ed39.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","Code/DS/searching pattern/index 07.07.js"], null)
+//# sourceMappingURL=/index%2007.07.1d83d817.js.map
