@@ -147,9 +147,51 @@ function linearSearch(arr, searchValue) {
   }
 
   return -1;
+} //console.log(linearSearch([1, 3, 4, 5, 29, 23, 43], 3));
+
+/**
+ *  Binary Search
+ */
+
+
+function binarySearch(arr, searchValue) {
+  var start = 0;
+  var end = arr.length - 1;
+  var mid = Math.floor((start + end) / 2);
+
+  while (arr[mid] !== searchValue && start <= end) {
+    if (searchValue < arr[mid]) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+
+    mid = Math.floor((start + end) / 2);
+  }
+
+  if (arr[mid] === searchValue) {
+    return mid;
+  }
+
+  return -1;
 }
 
-console.log(linearSearch([1, 3, 4, 5, 29, 23, 43], 3));
+console.log(binarySearch([1, 3, 4, 5, 23, 25, 42], 5));
+
+function bsearch(arr, ele) {
+  var start = 0;
+  var end = arr.length - 1;
+  var mid = Math.floor((start + end) / 2);
+
+  while (arr[mid] !== ele && start <= end) {
+    ele < arr[mid] ? end = mid - 1 : start = mid + 1;
+    mid = Math.floor((start + end) / 2);
+  }
+
+  return arr[mid] === ele ? mid : -1;
+}
+
+console.log(bsearch([1, 3, 4, 5, 23, 25, 42], 53));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -178,7 +220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50143" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49969" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
