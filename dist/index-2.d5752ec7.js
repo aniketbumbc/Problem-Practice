@@ -117,13 +117,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"IC Practice/Publicis Sapient/index.js":[function(require,module,exports) {
-/**
- *   Count Unique Value In Array
- */
-function countUniqueValues(arr) {
+})({"IC Practice/Publicis Sapient/index-2.js":[function(require,module,exports) {
+// count unique values in arry
+function countUinqeValues(arr) {
   var obj = {};
-  var uniqueArr = [];
+  var uniqueValues = [];
   arr.forEach(function (ele) {
     if (obj[ele] === undefined) {
       obj[ele] = 1;
@@ -134,109 +132,31 @@ function countUniqueValues(arr) {
 
   for (key in obj) {
     if (obj[key] === 1) {
-      uniqueArr.push(key);
+      uniqueValues.push(obj[key]);
     }
   }
 
-  return uniqueArr.length;
-}
-
-var result = countUniqueValues([1, 3, 4, 5, 2, 3, 2, 55, 33, 55, 35]); // console.log(result);
+  console.log(uniqueValues.length);
+} //countUinqeValues([2, 4, 5, 3, 44, 55, 55, 44]);
 
 /**
- *   Find max and min number into arry
+ * Longests sequeces unique
  */
 
-function findMaxMin(arr) {
-  var max = 0;
-  var min = 0;
 
-  if (arr[0] > arr[1]) {
-    max = arr[1];
-    min = arr[0];
-  }
-
-  for (var j = 2; j <= arr.length; j++) {
-    if (arr[j] > max) {
-      max = arr[j];
-    }
-
-    if (arr[j] < min) {
-      min = arr[j];
-    }
-  }
-
-  console.log('min = ', min, 'max = ', max);
-}
-
-findMaxMin([200, 191, 112, -11, 330, 60]);
-/**
- *  count pattern matching in longer string
- */
-
-function patternMatch(longStr, shortStr) {
-  var count = 0;
-
-  for (var i = 0; i <= longStr.length; i++) {
-    for (var j = 0; j <= shortStr.length; j++) {
-      if (shortStr[j] !== longStr[i + j]) {
-        break;
-      }
-
-      if (j === shortStr.length) {
-        count++;
-      }
-    }
-  }
-
-  return count;
-}
-
-console.log(patternMatch('bunny is going college with bunny', 'bunny'));
-/**
- *  binary search
- */
-
-function binarySearch(arr, searchValue) {
-  var start = 0;
-  var end = arr.length - 1;
-  var mid = Math.floor((start + end) / 2);
-
-  while (arr[mid] !== searchValue && start <= end) {
-    if (searchValue < arr[mid]) {
-      end = mid - 1;
-    } else {
-      start = mid + 1;
-    }
-
-    mid = Math.floor((start + end) / 2);
-  }
-
-  if (arr[mid] === searchValue) {
-    return mid;
-  }
-
-  return -1;
-}
-
-console.log(binarySearch([1, 3, 4, 5, 23, 25, 42], 5));
-/**
- * Longest sequence of unique character
- */
-
-function uniqueStr(str) {
-  var position = 0;
-  var char = '';
+function longSeque(str) {
+  var positon = 0;
   var currentString = '';
   var uniqueString = '';
+  var char = '';
 
   for (var i = 0; i < str.length; i++) {
     char = str.charAt(i);
-    position = currentString.indexOf(char);
+    positon = currentString.indexOf(char);
 
-    if (position !== -1) {
+    if (positon !== -1) {
       uniqueString = currentString;
-      currentString = currentString.substr(position + 1);
+      currentString = currentString.substr(positon + 1);
     }
 
     currentString += char;
@@ -247,9 +167,28 @@ function uniqueStr(str) {
   }
 
   console.log(uniqueString);
+} //longSeque('hello there how are zou');
+
+
+function seachSmallStr(longStr, smallStr) {
+  var count = 0;
+
+  for (var i = 0; i < longStr.length; i++) {
+    for (var j = 0; j <= smallStr.length; j++) {
+      if (smallStr[j] !== longStr[i + j]) {
+        break;
+      }
+
+      if (j === smallStr.length) {
+        count++;
+      }
+    }
+  }
+
+  console.log(count);
 }
 
-uniqueStr('hello there');
+seachSmallStr('bunny is going college with bunny', 'bunny');
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -454,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/Publicis Sapient/index.js"], null)
-//# sourceMappingURL=/Publicis%20Sapient.a2ba88a8.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/Publicis Sapient/index-2.js"], null)
+//# sourceMappingURL=/index-2.d5752ec7.js.map
