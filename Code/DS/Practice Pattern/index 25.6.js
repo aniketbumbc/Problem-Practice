@@ -64,9 +64,3 @@ function avgPair(arr, pair) {
 }
 
 console.log(avgPair([1, 0, 3, 4, 5, 6], 4.1));
-
-/** Sort Arry without sort function 0,1,2 */
-
-function unSortArry(arr) {}
-
-unSortArry([1, 0, 2, 0]);

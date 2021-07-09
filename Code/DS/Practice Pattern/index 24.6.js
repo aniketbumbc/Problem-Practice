@@ -3,14 +3,24 @@
  */
 
 function countUniqueValue(arr) {
-  const uniqueArr = [];
-  let i = 0;
-  for (let j = 1; j <= arr.length; j++) {
-    if (arr[i] !== arr[j]) {
-      uniqueArr.push(arr[i]);
+  let obj = {};
+  let uniqueArr = [];
+
+  arr.forEach((ele) => {
+    if (obj[ele] === undefined) {
+      obj[ele] = 1;
+    } else {
+      obj[ele] += 1;
     }
-    i++;
+  });
+
+  for (key in obj) {
+    if (obj[key] === 1) {
+      uniqueArr.push(key);
+    }
   }
+
+  return uniqueArr.length;
   //   console.log(uniqueArr.length);
 }
 

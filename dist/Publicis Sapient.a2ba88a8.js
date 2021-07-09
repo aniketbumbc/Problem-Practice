@@ -117,30 +117,32 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"Code/DS/searching pattern/index 08.07.js":[function(require,module,exports) {
+})({"IC Practice/Publicis Sapient/index.js":[function(require,module,exports) {
 /**
- *  Search smaller string in larger string
- *
+ *   Count Unique Value In Array
  */
-function searchPattern(longStr, patternStr) {
-  var count = 0;
+function countUniqueValues(arr) {
+  var obj = {};
+  var uniqueArr = [];
+  arr.forEach(function (ele) {
+    if (obj[ele] === undefined) {
+      obj[ele] = 1;
+    } else {
+      obj[ele] += 1;
+    }
+  });
 
-  for (var i = 0; i <= longStr.length; i++) {
-    for (var j = 0; j <= patternStr.length; j++) {
-      if (patternStr[j] !== longStr[i + j]) {
-        break;
-      }
-
-      if (j === patternStr.length - 1) {
-        count++;
-      }
+  for (key in obj) {
+    if (obj[key] === 1) {
+      uniqueArr.push(key);
     }
   }
 
-  return count;
+  return uniqueArr.length;
 }
 
-console.log(searchPattern('bunny is going college with bunny', 'bunny'));
+var result = countUniqueValues([1, 3, 4, 5, 2, 3, 2, 55, 33, 55, 35]);
+console.log(result);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -345,5 +347,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","Code/DS/searching pattern/index 08.07.js"], null)
-//# sourceMappingURL=/index%2008.07.a29ee9fa.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/Publicis Sapient/index.js"], null)
+//# sourceMappingURL=/Publicis%20Sapient.a2ba88a8.js.map
