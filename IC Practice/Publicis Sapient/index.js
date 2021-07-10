@@ -227,4 +227,103 @@ function testSetTimeoutFun(num) {
   }
 }
 
-testSetTimeoutFun(10);
+// testSetTimeoutFun(10);
+
+/**
+ * Curring
+ */
+
+function curr(a) {
+  return function (b) {
+    return function (c) {
+      return function (d) {
+        return a * b * c * d;
+      };
+    };
+  };
+}
+
+// let valueCurry = curr(2)(4)(5)(4);
+
+// console.log(valueCurry);
+
+function arrCurr(a) {
+  return (b) => (c) => (d) => {
+    return a * b * c * d;
+  };
+}
+
+let valueCurry = arrCurr(2)(8)(2)(4);
+
+// console.log(valueCurry);
+
+//clourse
+
+let global = 55;
+function outer() {
+  let abc = '34';
+  function inner() {
+    let kbc = '44';
+    console.log(abc, kbc, global);
+  }
+  inner();
+}
+
+// outer();
+
+// factorial
+
+function facto(num) {
+  if (num === 1) {
+    return 1;
+  }
+
+  return num * facto(num - 1);
+}
+
+// console.log(facto(6));
+
+function checkPrime(num) {
+  let isPrime = true;
+
+  if (num === 1) {
+    return null;
+  }
+
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  console.log(isPrime);
+}
+
+checkPrime(3);
+checkPrime(30);
+checkPrime(17);
+checkPrime(35);
+
+// sort arry
+
+let number = [2, 4, 6, 7, 3, 1, 100, 34, 4343];
+
+console.log(number.sort((a, b) => a - b));
+console.log(number.sort((a, b) => b - a));
+
+// fiz buzz
+
+function fizzBuzz() {
+  Array.from(new Array(45), (value, index) => {
+    index++;
+    if (index % 5 === 0 || index % 3 === 0) {
+      if (index % 5 !== 0) return 'Fizz';
+      if (index % 3 !== 0) return 'Buzz';
+      return 'FizzBuzz';
+    }
+    return index;
+  }).map((value) => console.log(value));
+}
+
+fizzBuzz();

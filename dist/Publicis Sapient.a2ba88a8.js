@@ -118,6 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"IC Practice/Publicis Sapient/index.js":[function(require,module,exports) {
+
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -367,9 +368,109 @@ function testSetTimeoutFun(num) {
       }, i * 1000);
     })(i);
   }
+} // testSetTimeoutFun(10);
+
+/**
+ * Curring
+ */
+
+
+function curr(a) {
+  return function (b) {
+    return function (c) {
+      return function (d) {
+        return a * b * c * d;
+      };
+    };
+  };
+} // let valueCurry = curr(2)(4)(5)(4);
+// console.log(valueCurry);
+
+
+function arrCurr(a) {
+  return function (b) {
+    return function (c) {
+      return function (d) {
+        return a * b * c * d;
+      };
+    };
+  };
 }
 
-testSetTimeoutFun(10);
+var valueCurry = arrCurr(2)(8)(2)(4); // console.log(valueCurry);
+//clourse
+
+var global = 55;
+
+function outer() {
+  var abc = '34';
+
+  function inner() {
+    var kbc = '44';
+    console.log(abc, kbc, global);
+  }
+
+  inner();
+} // outer();
+// factorial
+
+
+function facto(num) {
+  if (num === 1) {
+    return 1;
+  }
+
+  return num * facto(num - 1);
+} // console.log(facto(6));
+
+
+function checkPrime(num) {
+  var isPrime = true;
+
+  if (num === 1) {
+    return null;
+  }
+
+  for (var i = 2; i < num; i++) {
+    if (num % i === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  console.log(isPrime);
+}
+
+checkPrime(3);
+checkPrime(30);
+checkPrime(17);
+checkPrime(35); // sort arry
+
+var number = [2, 4, 6, 7, 3, 1, 100, 34, 4343];
+console.log(number.sort(function (a, b) {
+  return a - b;
+}));
+console.log(number.sort(function (a, b) {
+  return b - a;
+})); // fiz buzz
+
+function fizzBuzz() {
+  Array.from(new Array(45), function (value, index) {
+    index++;
+
+    if (index % 5 === 0 || index % 3 === 0) {
+      if (index % 5 !== 0) return 'Fizz';
+      if (index % 3 !== 0) return 'Buzz';
+      return 'FizzBuzz';
+    }
+
+    return index;
+  }).map(function (value) {
+    return console.log(value);
+  });
+}
+
+fizzBuzz();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
