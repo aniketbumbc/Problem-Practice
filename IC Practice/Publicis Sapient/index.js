@@ -300,17 +300,17 @@ function checkPrime(num) {
   console.log(isPrime);
 }
 
-checkPrime(3);
-checkPrime(30);
-checkPrime(17);
-checkPrime(35);
+// checkPrime(3);
+// checkPrime(30);
+// checkPrime(17);
+// checkPrime(35);
 
 // sort arry
 
 let number = [2, 4, 6, 7, 3, 1, 100, 34, 4343];
 
-console.log(number.sort((a, b) => a - b));
-console.log(number.sort((a, b) => b - a));
+// console.log(number.sort((a, b) => a - b));
+// console.log(number.sort((a, b) => b - a));
 
 // fiz buzz
 
@@ -326,4 +326,68 @@ function fizzBuzz() {
   }).map((value) => console.log(value));
 }
 
-fizzBuzz();
+// fizzBuzz();
+
+// missing number in array
+
+function findMissingNum(arr) {
+  let sum = 0;
+  let newTotal = Math.floor(((arr.length + 1) * (arr.length + 2)) / 2);
+  for (val of arr) {
+    sum += val;
+  }
+  return newTotal - sum;
+}
+
+let value = findMissingNum([1, 2, 4, 6, 3, 7, 8]);
+
+console.log(value);
+
+// anagram find
+
+function checkAnanGram(str1, str2) {
+  let obj1 = checkFreq(str1);
+  let obj2 = checkFreq(str2);
+
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+
+  for (key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+
+    return true;
+  }
+}
+
+function checkFreq(str) {
+  let obj = {};
+
+  for (let char of str) {
+    if (obj[char] === undefined) {
+      obj[char] = 1;
+    } else {
+      obj[char] += 1;
+    }
+  }
+
+  return obj;
+}
+
+console.log(checkAnanGram('level', 'levell'));
+
+// fibo series
+
+function fiboSeries(num) {
+  const fibArray = [0, 1];
+
+  for (let i = 2; i <= num; i++) {
+    fibArray.push(fibArray[i - 2] + fibArray[i - 1]);
+  }
+
+  return fibArray[fibArray.length - 1];
+}
+
+console.log(fiboSeries(8));

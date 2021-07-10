@@ -439,20 +439,16 @@ function checkPrime(num) {
   }
 
   console.log(isPrime);
-}
+} // checkPrime(3);
+// checkPrime(30);
+// checkPrime(17);
+// checkPrime(35);
+// sort arry
 
-checkPrime(3);
-checkPrime(30);
-checkPrime(17);
-checkPrime(35); // sort arry
 
-var number = [2, 4, 6, 7, 3, 1, 100, 34, 4343];
-console.log(number.sort(function (a, b) {
-  return a - b;
-}));
-console.log(number.sort(function (a, b) {
-  return b - a;
-})); // fiz buzz
+var number = [2, 4, 6, 7, 3, 1, 100, 34, 4343]; // console.log(number.sort((a, b) => a - b));
+// console.log(number.sort((a, b) => b - a));
+// fiz buzz
 
 function fizzBuzz() {
   Array.from(new Array(45), function (value, index) {
@@ -468,9 +464,89 @@ function fizzBuzz() {
   }).map(function (value) {
     return console.log(value);
   });
+} // fizzBuzz();
+// missing number in array
+
+
+function findMissingNum(arr) {
+  var sum = 0;
+  var newTotal = Math.floor((arr.length + 1) * (arr.length + 2) / 2);
+
+  var _iterator3 = _createForOfIteratorHelper(arr),
+      _step3;
+
+  try {
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      val = _step3.value;
+      sum += val;
+    }
+  } catch (err) {
+    _iterator3.e(err);
+  } finally {
+    _iterator3.f();
+  }
+
+  return newTotal - sum;
 }
 
-fizzBuzz();
+var value = findMissingNum([1, 2, 4, 6, 3, 7, 8]);
+console.log(value); // anagram find
+
+function checkAnanGram(str1, str2) {
+  var obj1 = checkFreq(str1);
+  var obj2 = checkFreq(str2);
+
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+
+  for (key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+
+    return true;
+  }
+}
+
+function checkFreq(str) {
+  var obj = {};
+
+  var _iterator4 = _createForOfIteratorHelper(str),
+      _step4;
+
+  try {
+    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+      var _char = _step4.value;
+
+      if (obj[_char] === undefined) {
+        obj[_char] = 1;
+      } else {
+        obj[_char] += 1;
+      }
+    }
+  } catch (err) {
+    _iterator4.e(err);
+  } finally {
+    _iterator4.f();
+  }
+
+  return obj;
+}
+
+console.log(checkAnanGram('level', 'levell')); // fibo series
+
+function fiboSeries(num) {
+  var fibArray = [0, 1];
+
+  for (var i = 2; i <= num; i++) {
+    fibArray.push(fibArray[i - 2] + fibArray[i - 1]);
+  }
+
+  return fibArray[fibArray.length - 1];
+}
+
+console.log(fiboSeries(8));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -499,7 +575,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49675" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64118" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
