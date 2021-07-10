@@ -269,14 +269,13 @@ function reverseStr(str) {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       char = _step.value;
       revs = char + revs;
-    }
+    } // console.log(revs);
+
   } catch (err) {
     _iterator.e(err);
   } finally {
     _iterator.f();
   }
-
-  console.log(revs);
 } // reverseStr('hello');
 
 
@@ -297,14 +296,80 @@ function revesNumber(num) {
     temp = num % 10;
     result = result * 10 + temp;
     num = Math.floor(num / 10);
-  }
+  } // console.log(result);
 
-  console.log(result);
 } // revesNumber(4563);
 
 /**
  *  Max character in string
  */
+
+
+function findMaxChar(str) {
+  str = str.toLowerCase();
+  var obj = {};
+  var maxChar = '';
+  var maxCount = 0;
+
+  var _iterator2 = _createForOfIteratorHelper(str),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      char = _step2.value;
+
+      if (obj[char] === undefined) {
+        obj[char] = 1;
+      } else {
+        obj[char] += 1;
+      }
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  for (char in obj) {
+    if (obj[char] > maxCount) {
+      maxCount = obj[char];
+      maxChar = char;
+    }
+  }
+
+  console.log(maxCount, maxChar);
+} // findMaxChar('Uncommited Msg');
+
+/**
+ *  Set Timout
+ *
+ */
+
+
+function testSetTimeout(num) {
+  var _loop = function _loop(i) {
+    setTimeout(function () {
+      console.log(i);
+    }, i * 1000);
+  };
+
+  for (var i = 1; i <= num; i++) {
+    _loop(i);
+  }
+} //testSetTimeout(10);
+
+
+function testSetTimeoutFun(num) {
+  for (var i = 1; i <= num; i++) {
+    (function (i) {
+      setTimeout(function () {
+        console.log(i);
+      }, i * 1000);
+    })(i);
+  }
+}
+
+testSetTimeoutFun(10);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

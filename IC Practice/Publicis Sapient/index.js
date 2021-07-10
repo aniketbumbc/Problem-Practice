@@ -142,7 +142,7 @@ function reverseStr(str) {
   for (char of str) {
     revs = char + revs;
   }
-  console.log(revs);
+  // console.log(revs);
 }
 
 // reverseStr('hello');
@@ -167,7 +167,7 @@ function revesNumber(num) {
     num = Math.floor(num / 10);
   }
 
-  console.log(result);
+  // console.log(result);
 }
 
 // revesNumber(4563);
@@ -175,3 +175,56 @@ function revesNumber(num) {
 /**
  *  Max character in string
  */
+
+function findMaxChar(str) {
+  str = str.toLowerCase();
+  let obj = {};
+  let maxChar = '';
+  let maxCount = 0;
+
+  for (char of str) {
+    if (obj[char] === undefined) {
+      obj[char] = 1;
+    } else {
+      obj[char] += 1;
+    }
+  }
+
+  for (char in obj) {
+    if (obj[char] > maxCount) {
+      maxCount = obj[char];
+      maxChar = char;
+    }
+  }
+
+  console.log(maxCount, maxChar);
+}
+
+// findMaxChar('Uncommited Msg');
+
+/**
+ *  Set Timout
+ *
+ */
+
+function testSetTimeout(num) {
+  for (let i = 1; i <= num; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, i * 1000);
+  }
+}
+
+//testSetTimeout(10);
+
+function testSetTimeoutFun(num) {
+  for (var i = 1; i <= num; i++) {
+    (function (i) {
+      setTimeout(() => {
+        console.log(i);
+      }, i * 1000);
+    })(i);
+  }
+}
+
+testSetTimeoutFun(10);
