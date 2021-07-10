@@ -128,7 +128,50 @@ function uniqueStr(str) {
     uniqueString = currentString;
   }
 
-  console.log(uniqueString);
+  // console.log(uniqueString);
 }
 
-uniqueStr('hello there');
+// uniqueStr('hello there');
+
+/**
+ *  Reverse String
+ */
+
+function reverseStr(str) {
+  let revs = '';
+  for (char of str) {
+    revs = char + revs;
+  }
+  console.log(revs);
+}
+
+// reverseStr('hello');
+
+function reverSimple(str) {
+  return str.split('').reverse().join('');
+}
+
+// console.log(reverSimple('bunny'));
+
+/**
+ *  Reverse Number
+ */
+
+function revesNumber(num) {
+  let result = 0;
+  let temp = 0;
+
+  while (num !== 0) {
+    temp = num % 10;
+    result = result * 10 + temp;
+    num = Math.floor(num / 10);
+  }
+
+  console.log(result);
+}
+
+// revesNumber(4563);
+
+/**
+ *  Max character in string
+ */

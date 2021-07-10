@@ -174,7 +174,7 @@ function seachSmallStr(longStr, smallStr) {
   var count = 0;
 
   for (var i = 0; i < longStr.length; i++) {
-    for (var j = 0; j <= smallStr.length; j++) {
+    for (var j = 0; j <= gitsmallStr.length; j++) {
       if (smallStr[j] !== longStr[i + j]) {
         break;
       }

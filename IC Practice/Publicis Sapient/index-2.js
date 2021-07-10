@@ -23,7 +23,7 @@ function countUinqeValues(arr) {
 //countUinqeValues([2, 4, 5, 3, 44, 55, 55, 44]);
 
 /**
- * Longests sequeces unique
+ * Longests sequeces unique character
  */
 
 function longSeque(str) {
@@ -55,7 +55,7 @@ function seachSmallStr(longStr, smallStr) {
   let count = 0;
 
   for (let i = 0; i < longStr.length; i++) {
-    for (let j = 0; j <= smallStr.length; j++) {
+    for (let j = 0; j <= gitsmallStr.length; j++) {
       if (smallStr[j] !== longStr[i + j]) {
         break;
       }
