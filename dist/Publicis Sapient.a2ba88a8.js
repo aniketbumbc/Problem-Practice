@@ -547,6 +547,39 @@ function fiboSeries(num) {
 }
 
 console.log(fiboSeries(8));
+
+function fiboSeriesRec(n) {
+  if (n <= 2) {
+    return 1;
+  }
+
+  return fiboSeriesRec(n - 1) + fiboSeriesRec(n - 2);
+}
+
+console.log(fiboSeriesRec(8)); // Promise
+
+var getData = new Promise(function (resolve, reject) {
+  var connection = true;
+
+  if (connection) {
+    resolve('Yes it resolve now ');
+  } else {
+    reject('No it reject now');
+  }
+}).then(function (msg) {
+  return console.log(msg);
+}).catch(function (err) {
+  return console.log(err);
+}); //  Callback
+
+function callbackFunction(name) {
+  console.log('Hello ' + name);
+}
+
+function outerFunction(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+} // outerFunction(callbackFunction);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

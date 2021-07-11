@@ -391,3 +391,39 @@ function fiboSeries(num) {
 }
 
 console.log(fiboSeries(8));
+
+function fiboSeriesRec(n) {
+  if (n <= 2) {
+    return 1;
+  }
+
+  return fiboSeriesRec(n - 1) + fiboSeriesRec(n - 2);
+}
+
+console.log(fiboSeriesRec(8));
+// Promise
+
+const getData = new Promise((resolve, reject) => {
+  let connection = true;
+
+  if (connection) {
+    resolve('Yes it resolve now ');
+  } else {
+    reject('No it reject now');
+  }
+})
+  .then((msg) => console.log(msg))
+  .catch((err) => console.log(err));
+
+//  Callback
+
+function callbackFunction(name) {
+  console.log('Hello ' + name);
+}
+
+function outerFunction(callback) {
+  let name = prompt('Please enter your name.');
+  callback(name);
+}
+
+// outerFunction(callbackFunction);
