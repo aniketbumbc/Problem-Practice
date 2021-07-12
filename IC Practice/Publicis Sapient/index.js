@@ -52,7 +52,7 @@ function findMaxMin(arr) {
   console.log('min = ', min, 'max = ', max);
 }
 
-findMaxMin([200, 191, 112, -11, 330, 60]);
+// findMaxMin([200, 191, 112, -11, 330, 60]);
 
 /**
  *  count pattern matching in longer string

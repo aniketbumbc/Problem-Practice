@@ -174,12 +174,12 @@ function findMaxMin(arr) {
   }
 
   console.log('min = ', min, 'max = ', max);
-}
+} // findMaxMin([200, 191, 112, -11, 330, 60]);
 
-findMaxMin([200, 191, 112, -11, 330, 60]);
 /**
  *  count pattern matching in longer string
  */
+
 
 function patternMatch(longStr, shortStr) {
   var count = 0;
@@ -608,7 +608,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64118" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53178" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
