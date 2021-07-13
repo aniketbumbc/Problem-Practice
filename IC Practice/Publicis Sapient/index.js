@@ -427,3 +427,42 @@ function outerFunction(callback) {
 }
 
 // outerFunction(callbackFunction);
+
+const student = {
+  city: 'Baltimore',
+  state: 'Maryland',
+};
+
+function getInfo(args) {
+  console.log(this.city, ' ', this.state, ...args);
+}
+
+let bindData = getInfo.bind(student, ['UMBC', 'DownTown', 'Hiltop']);
+bindData();
+
+// Object seal , freez , clone
+
+const cityInfo = {
+  road: 'MK',
+  round: 'CK',
+  pin: {
+    main: 421301,
+    Yahoo: 'New Site',
+  },
+};
+// Object.seal(cityInfo);
+
+// cityInfo.state = 'MH';
+// delete cityInfo.road;
+// cityInfo.road = 'Bunny';
+
+const cityInfo2 = { ...cityInfo };
+const cityInfo3 = JSON.parse(JSON.stringify(cityInfo));
+
+cityInfo.pin.main = 3232;
+cityInfo2.pin.Yahoo = 'Mssnger';
+cityInfo3.pin.main = 4343;
+
+console.log(cityInfo);
+console.log(cityInfo2);
+console.log(cityInfo3);
