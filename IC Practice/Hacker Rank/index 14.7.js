@@ -30,3 +30,27 @@ function checkDuplicatePair(arr) {
 }
 
 checkDuplicatePair([10, 20, 20, 10, 10, 30, 50, 10, 20]);
+
+function countChar(str, count) {
+  let finalStr = '';
+  let countA = 0;
+
+  if (str.length === 1 && str.includes('a')) {
+    return count;
+  }
+  console.log(str.length);
+
+  for (let i = 0; i < count; i++) {
+    finalStr += str;
+  }
+  console.log(finalStr);
+  finalStr = finalStr.slice(0, count);
+  console.log(finalStr);
+  finalStr.split('').forEach((ele) => {
+    if (ele === 'a') {
+      countA++;
+    }
+  });
+
+  console.log(countA);
+}
