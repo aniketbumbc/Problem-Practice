@@ -38,7 +38,6 @@ function countChar(str, count) {
   if (str.length === 1 && str.includes('a')) {
     return count;
   }
-  console.log(str.length);
 
   for (let i = 0; i < count; i++) {
     finalStr += str;
@@ -52,5 +51,7 @@ function countChar(str, count) {
     }
   });
 
-  console.log(countA);
+  return countA;
 }
+
+countChar('aba', 5);
