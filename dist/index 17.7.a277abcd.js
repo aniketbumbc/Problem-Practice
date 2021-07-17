@@ -117,38 +117,72 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"IC Practice/Hacker Rank/index 14.7.js":[function(require,module,exports) {
-var arr = [10, 20, 20, 10, 10, 30, 50, 10, 20];
+})({"IC Practice/Hacker Rank/index 17.7.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-function sockMerchant(ar) {
-  var res = 0;
-  ar.sort();
-  console.log(ar);
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  for (var i = 0; i < ar.length; i++) {
-    if (ar[i] == ar[i + 1]) {
-      i++;
-      res++;
-    }
-  }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-  return res;
-} // console.log(sockMerchant(arr));
-
-
-function checkDuplicatePair(arr) {
+function repeatedStr(str, n) {
   var count = 0;
-  arr.sort();
+  var strLength = str.length;
 
-  for (var j = 0; j < arr.length; j++) {
-    if (arr[j] === arr[j + 1]) {
+  var _iterator = _createForOfIteratorHelper(str),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var value = _step.value;
+
+      if (value === 'a') {
+        count++;
+      }
+    } //largest multiple which is less than n
+
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  console.log('module', Math.floor(n / strLength));
+  console.log('count', count);
+  count = Math.floor(n / strLength) * count; // 10 * length largest multiple
+
+  console.log('count after', count);
+
+  for (var i = 0; i < n % strLength; i++) {
+    if (str[i] === 'a') {
       count++;
-      j++;
     }
   }
 
-  console.log(count);
-} //checkDuplicatePair([10, 20, 20, 10, 10, 30, 50, 10, 20]);
+  return count;
+}
+
+console.log(repeatedStr('aba', 10));
+
+function countValleys(steps, path) {
+  var countValleys = 0;
+  var altitude = 0;
+
+  for (var i = 0; i <= path.length; i++) {
+    if (path[i] === 'U') {
+      altitude++;
+
+      if (altitude === 0) {
+        countValleys++;
+      }
+    } else {
+      altitude--;
+    }
+  }
+
+  console.log(countValleys);
+}
+
+countValleys(8, 'DUDDUUUUDDD');
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -177,7 +211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51744" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58804" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -353,5 +387,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/Hacker Rank/index 14.7.js"], null)
-//# sourceMappingURL=/index%2014.7.a07d5fdd.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/Hacker Rank/index 17.7.js"], null)
+//# sourceMappingURL=/index%2017.7.a277abcd.js.map
