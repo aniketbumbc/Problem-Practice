@@ -4,7 +4,7 @@ var x = 23;
 var number = [1, 4, 5, 3, 5];
 var num = number;
 num.push(34);
-console.log(number, num);
+console.log(number, num); //[1, 4, 5, 3, 5,34] [1, 4, 5, 3, 5,34]
 
 var str = 'A' + 'B' + +'.' + 'B'.toLocaleLowerCase();
 
