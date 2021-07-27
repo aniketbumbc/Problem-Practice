@@ -1,5 +1,4 @@
 // Longest Sequeces of Unique charater
-
 function longSequ(str) {
   let position = 0;
   let uniqueStr = '';
