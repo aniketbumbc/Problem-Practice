@@ -29,3 +29,9 @@ console.log(a);
 
 let isCheck = undefined == null;
 console.log(isCheck);
+
+// function display() {
+//   var x = 10;
+// }
+// display();
+// alert(x);
