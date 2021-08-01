@@ -27,7 +27,7 @@ var a = 10;
 
 console.log(a);
 
-let isCheck = undefined == null;
+let isCheck = undefined === null;
 console.log(isCheck);
 
 // function display() {

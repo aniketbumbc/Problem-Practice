@@ -117,34 +117,364 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"IC Practice/Acc - Digital/index 2.js":[function(require,module,exports) {
-console.log(x);
-var x = 23;
-var number = [1, 4, 5, 3, 5];
-var num = number;
-num.push(34);
-console.log(number, num); //[1, 4, 5, 3, 5,34] [1, 4, 5, 3, 5,34]
+})({"IC Practice/gerFinal/session-1.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-var str = 'A' + 'B' + +'.' + 'B'.toLocaleLowerCase();
-console.log(str);
-var a = 10;
-{
-  {
-    {
-      var a = 30;
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//Binary Serarch 1
+function binarySearch(arr, searchValue) {
+  var start = 0;
+  var end = arr.length - 1;
+  var mid = Math.floor((start + end) / 2);
+
+  while (arr[mid] !== searchValue && start <= end) {
+    if (searchValue < arr[mid]) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+
+    mid = Math.floor((start + end) / 2);
+  }
+
+  if (arr[mid] === searchValue) {
+    return mid;
+  }
+
+  return null;
+} //console.log(binarySearch([1, 3, 4, 5, 23, 25, 42], 12));
+
+/**
+ *  Search smaller string in larger string.
+ */
+
+
+function searchStr(longStr, smlStr) {
+  var tempObj = {};
+  var temLongStr = longStr.split(' ');
+
+  var _iterator = _createForOfIteratorHelper(temLongStr),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var _str = _step.value;
+
+      if (tempObj[_str] !== undefined) {
+        tempObj[_str] += 1;
+      } else {
+        tempObj[_str] = 1;
+      }
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  for (var str in tempObj) {
+    if (str === smlStr) {
+      return [smlStr, tempObj[smlStr]];
     }
   }
 }
-{
-  var a = 100;
+
+console.log(searchStr('bunny is going college with bunny college is college', 'is')); // revers number
+
+function reverNo(number) {
+  var result = 0;
+  var temp = 0;
+
+  while (number) {
+    temp = number % 10;
+    result = result * 10 + temp;
+    number = Math.floor(number / 10);
+  }
+
+  console.log(result);
 }
-console.log(a);
-var isCheck = undefined === null;
-console.log(isCheck); // function display() {
-//   var x = 10;
-// }
-// display();
-// alert(x);
+
+reverNo(0987654321); //reverse string
+
+function revStr(str) {
+  var reveString = '';
+
+  var _iterator2 = _createForOfIteratorHelper(str),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var char = _step2.value;
+      reveString = char + reveString;
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  console.log(reveString);
+} //revStr('aniket');
+
+/**
+ *  Find Max and Min Number in to array
+ */
+
+
+function findMaxMin(arr) {
+  var max = 0;
+  var min = 0;
+
+  if (arr.length === 1) {
+    max = arr[0];
+    min = arr[0];
+  }
+
+  max = arr[1];
+  min = arr[0];
+
+  for (var i = 2; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+
+  console.log('max:---', max, 'min:-----', min);
+} //findMaxMin([1, 2, 3, 4, 5, 6, 3, 6, -22, 120]);
+
+/**
+ * Longest sequence of unique charactors
+ */
+
+
+function longSequeChar(str) {
+  var currentStr = '';
+  var longSequ = '';
+  var char = '';
+  var position = 0;
+
+  for (var i = 0; i < str.length; i++) {
+    char = str[i];
+    position = currentStr.indexOf(char);
+
+    if (position !== -1) {
+      longSequ = currentStr;
+      currentStr = currentStr.substr(position + 1);
+    }
+
+    currentStr += char;
+  }
+
+  if (!longSequ.length) {
+    longSequ = currentStr;
+  }
+
+  console.log(longSequ);
+}
+
+longSequeChar('hello there');
+/**
+ * Count Unique values in array
+ */
+
+function uniqueValue(arr) {
+  var tempObj = {};
+  var count = 0;
+  var values = [];
+
+  var _iterator3 = _createForOfIteratorHelper(arr),
+      _step3;
+
+  try {
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var val = _step3.value;
+
+      if (tempObj[val]) {
+        tempObj[val] += 1;
+      } else {
+        tempObj[val] = 1;
+      }
+    }
+  } catch (err) {
+    _iterator3.e(err);
+  } finally {
+    _iterator3.f();
+  }
+
+  for (var key in tempObj) {
+    if (tempObj[key] === 1) {
+      count++;
+      values.push(key);
+    }
+  }
+
+  console.log([values, count]);
+} //uniqueValue([2, 4, 5, 3, 44, 55, 55, 44]);
+
+
+function findMaxChar(str) {
+  var tempString = str.split('');
+  var tempObj = {};
+  var maxCount = 0;
+  var maxStr = '';
+
+  var _iterator4 = _createForOfIteratorHelper(tempString),
+      _step4;
+
+  try {
+    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+      var char = _step4.value;
+
+      if (tempObj[char]) {
+        tempObj[char] += 1;
+      } else {
+        tempObj[char] = 1;
+      }
+    }
+  } catch (err) {
+    _iterator4.e(err);
+  } finally {
+    _iterator4.f();
+  }
+
+  for (var key in tempObj) {
+    if (tempObj[key] > maxCount) {
+      maxCount = tempObj[key];
+      maxStr = key;
+    }
+  }
+
+  console.log(maxCount, maxStr);
+} //findMaxChar('aniketwillbeingermanyyyyeee');
+
+/*
+ * Factorial Number
+ */
+
+
+function facto(num) {
+  if (num === 1) {
+    return 1;
+  }
+
+  return facto(num - 1) * num;
+} //console.log(facto(4));
+//find missing number in array
+
+
+function findMissNo(arr) {
+  var n = arr.length;
+  var sumNnumber = Math.floor((n + 1) * (n + 2) / 2);
+  var arrTotal = 0;
+
+  for (var i = 0; i < arr.length; i++) {
+    arrTotal += arr[i];
+  }
+
+  console.log(sumNnumber - arrTotal);
+} // findMissNo([1, 2, 4, 5, 6]);
+
+/**
+ * Find vovelws in string
+ */
+
+
+function findVowels(str) {
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  var count = 0;
+
+  var _iterator5 = _createForOfIteratorHelper(str),
+      _step5;
+
+  try {
+    for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+      var char = _step5.value;
+
+      if (vowels.includes(char)) {
+        count++;
+      }
+    }
+  } catch (err) {
+    _iterator5.e(err);
+  } finally {
+    _iterator5.f();
+  }
+
+  console.log(count);
+}
+
+findVowels('euouae');
+var getData = new Promise(function (reslove, reject) {
+  var result = true;
+
+  if (result) {
+    reslove('Here promise ');
+  } else {
+    reject('No it reject');
+  }
+}).then(function (value) {
+  return console.log(value);
+}); //curring
+
+function curry(a) {
+  return function (b) {
+    return function (c) {
+      return a * b * c;
+    };
+  };
+}
+
+console.log(curry(2)(4)(5));
+var student = 'Aniket';
+
+(function display() {
+  var student = 'bunny';
+  console.log('inside', student);
+})();
+
+var numberArr = [34, 35, 64, 23, 1, 7, 8, 5343, 232, 12];
+console.log(numberArr.sort(function (a, b) {
+  return a - b;
+}));
+console.log(numberArr.sort(function (a, b) {
+  return b - a;
+})); //fibo series
+
+function fibo(num) {
+  var num1 = 0;
+  var num2 = 1;
+  var num3;
+
+  for (var i = 3; i <= num; i++) {
+    num3 = num1 + num2;
+    num1 = num2;
+    num2 = num3;
+    console.log(num3);
+  }
+}
+
+fibo(10);
+
+function fibRecursive(num) {
+  if (num === 1) {
+    return 0;
+  }
+
+  if (num === 2) {
+    return 1;
+  }
+
+  return fibRecursive(num - 1) + fibRecursive(num - 2);
+}
+
+console.log(fibRecursive(10));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -349,5 +679,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/Acc - Digital/index 2.js"], null)
-//# sourceMappingURL=/index%202.2039d4c5.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IC Practice/gerFinal/session-1.js"], null)
+//# sourceMappingURL=/session-1.fd7a7fbf.js.map
