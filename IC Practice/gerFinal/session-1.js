@@ -271,8 +271,8 @@ var student = 'Aniket';
 
 const numberArr = [34, 35, 64, 23, 1, 7, 8, 5343, 232, 12];
 
-console.log(numberArr.sort((a, b) => a - b));
-console.log(numberArr.sort((a, b) => b - a));
+// console.log(numberArr.sort((a, b) => a - b));
+// console.log(numberArr.sort((a, b) => b - a));
 
 //fibo series
 
@@ -288,7 +288,7 @@ function fibo(num) {
     console.log(num3);
   }
 }
-fibo(10);
+//fibo(10);
 
 function fibRecursive(num) {
   if (num === 1) {
@@ -302,4 +302,132 @@ function fibRecursive(num) {
   return fibRecursive(num - 1) + fibRecursive(num - 2);
 }
 
-console.log(fibRecursive(10));
+//console.log(fibRecursive(10));
+
+function sum(x) {
+  if (arguments.length === 2) {
+    return arguments[0] + arguments[1];
+  } else {
+    return function (y) {
+      return x + y;
+    };
+  }
+}
+
+console.log(sum(2, 3)); // Outputs 5
+console.log(sum(2)(3)); // Outputs 5
+
+var d = {};
+['zebra', 'horse'].forEach(function (k) {
+  d[k] = undefined;
+});
+
+//console.log(d);
+
+var x = 21;
+var boo = 100;
+var girl = function () {
+  //console.log(boo);
+  var x = 20;
+  var boo = 1;
+};
+//girl();
+
+var b = 1;
+function outer() {
+  var b = 2;
+  function inner() {
+    b++;
+    var b = 300;
+    // console.log(b);
+  }
+  inner();
+}
+outer();
+
+let obj = {
+  a: 1,
+  b: 2,
+  c: {
+    age: 30,
+  },
+};
+
+let freshObj = JSON.parse(JSON.stringify(obj));
+
+//console.log(freshObj);
+
+obj.c.age = 45;
+
+//console.log(freshObj);
+//console.log(obj);
+
+// call bind apply
+
+const studentNew = {
+  name: 'aniket',
+  class: 'IS620',
+};
+
+const developer = {
+  name: 'Java',
+  class: 12,
+};
+
+function showData(...arg1) {
+  // console.log(this.name, this.class, arg1);
+}
+
+//showData.call(studentNew, 'hello');
+
+showData.apply(studentNew, [1, 3, 4, 1]);
+
+let bindTest = showData.bind(developer, [34, 36, 64])();
+
+// bindTest();
+
+function setTime(num) {
+  for (let i = 0; i <= num; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, i * 1000);
+  }
+}
+// setTime(5);
+
+function setTimeFun(num) {
+  for (var i = 0; i <= num; i++) {
+    (function (i) {
+      setTimeout(() => {
+        console.log(i);
+      }, i * 1000);
+    })(i);
+  }
+}
+
+//setTimeFun(8);
+
+function fizzBuzz(num) {
+  Array.from(new Array(num), function (ele, index) {
+    index++;
+
+    if (index % 5 === 0 || index % 3 === 0) {
+      if (index % 5 !== 0) return 'Fizz';
+      if (index % 3 !== 0) return 'Buzz';
+      return 'Fizz Buzz';
+    }
+    return index;
+  }).map((value) => console.log(value));
+}
+//fizzBuzz(30);
+
+const animal = {};
+let dog = { name: 'buuny' };
+let cat = { name: 'yahiii' };
+
+// animal[dog] = { ...dog, name: 'mike' };
+// animal[cat] = { ...cat, name: 'sata' };
+
+animal[dog] = 'doggi';
+animal[cat] = 'stat';
+console.log(animal);

@@ -339,7 +339,7 @@ function fizzBuzz(num) {
     if (index % 5 === 0 || index % 3 === 0) {
       if (index % 5 !== 0) return 'Fizz';
       if (index % 3 !== 0) return 'Buzz';
-      return 'FizzBuzz';
+      return 'Fizz Buzz';
     }
     return index;
   }).map((value) => console.log(value));
