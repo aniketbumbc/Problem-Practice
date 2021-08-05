@@ -407,3 +407,5 @@ function display(...arg) {
 }
 
 display.apply(city, [343, 'ere']);
+
+let arr = ['a', 'b', 'c'];
