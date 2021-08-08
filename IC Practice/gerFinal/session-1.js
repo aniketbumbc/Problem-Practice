@@ -431,3 +431,16 @@ let cat = { name: 'yahiii' };
 animal[dog] = 'doggi';
 animal[cat] = 'stat';
 console.log(animal);
+
+function cb() {
+  setTimeout(() => {
+    console.log('Hello from callback ');
+  }, 2000);
+}
+
+function callCB(cb) {
+  console.log('enter into callCb');
+  cb();
+}
+
+callCB(cb);
