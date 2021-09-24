@@ -85,6 +85,7 @@ function revStr(str) {
  */
 
 function findMaxMin(arr) {
+  ``;
   let max = 0;
   let min = 0;
 
